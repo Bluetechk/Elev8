@@ -4,6 +4,7 @@ import {
   Users2, 
   Globe 
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 import schoolLogo from '../assets/elev8 school of skill logo.png';
 import mediaLogo from '../assets/elev8Media.jpeg';
@@ -16,7 +17,8 @@ const offerings = [
     description: "We equip individuals with practical, in-demand skills that translate into real opportunities. Through hands-on training, mentorship, and project-based learning, we prepare participants to earn, create, and compete in today’s evolving world. From digital and creative skills to professional and technical development, the School of Skills is designed to move people from potential to productivity—and from learning to earning.",
     logo: schoolLogo,
     buttonText: "Explore Programs",
-    color: "bg-primary"
+    color: "bg-primary",
+    path: "/school-of-skill"
   },
   {
     title: "Elev8 Media",
@@ -24,7 +26,8 @@ const offerings = [
     description: "Elev8 Media provides creative and strategic services in branding, content creation, and digital storytelling—helping individuals, businesses, and organizations communicate with clarity, confidence, and impact. Beyond services, we are building a platform that amplifies voices, tells meaningful stories, and positions brands to stand out in a crowded world.",
     logo: mediaLogo,
     buttonText: "View Services",
-    color: "bg-accent"
+    color: "bg-accent",
+    path: "/media"
   },
   {
     title: "Elev8 Library",
@@ -32,7 +35,8 @@ const offerings = [
     description: "Cultivating a culture of reading, thinking, and continuous learning. Through curated resources, book access, reading programs, and intellectual communities, Elev8 Library exists to expand minds, inspire deeper thinking, and make reading sexy again. It is a hub for ideas, reflection, and personal growth, where knowledge becomes a tool for transformation.",
     logo: libraryLogo,
     buttonText: "Explore Library",
-    color: "bg-primary"
+    color: "bg-primary",
+    path: "/library"
   },
   {
     title: "Level Up Conference",
@@ -40,7 +44,8 @@ const offerings = [
     description: "Our flagship annual experience designed to help individuals start the year with clarity, direction, and intention. This online gathering brings together thought leaders to explore key areas that shape a truly great year. Through powerful sessions and practical insights, participants are equipped to design—not drift through—their year, building a foundation for growth, purpose, and impact.",
     icon: TrendingUp,
     buttonText: "Join Conference",
-    color: "bg-accent"
+    color: "bg-accent",
+    path: "/levelup"
   },
   {
     title: "Welcome to College",
@@ -48,7 +53,8 @@ const offerings = [
     description: "A focused career and life-readiness program for high school graduates preparing to transition into university. Held annually in August, this program equips participants with the mindset, clarity, and tools needed to make informed decisions about their academic and career paths, from course selection to leadership and future planning.",
     icon: Users2,
     buttonText: "Learn More",
-    color: "bg-primary"
+    color: "bg-primary",
+    path: "/welcome"
   },
   {
     title: "Innov8 Afrika",
@@ -56,13 +62,14 @@ const offerings = [
     description: "A forward-thinking conference dedicated to entrepreneurs, creators, and innovators across Africa. Hosted annually in November, this virtual gathering creates a space for bold ideas, practical business insights, and meaningful connections for visionaries who are building solutions, creating opportunities, and shaping Africa’s future.",
     icon: Globe,
     buttonText: "Explore Innov8",
-    color: "bg-accent"
+    color: "bg-accent",
+    path: "/innov8"
   }
 ];
 
 const Offerings = () => {
   return (
-    <section className="py-20 bg-bg-light relative">
+    <section id="offerings" className="py-20 bg-bg-light relative">
       {/* Notch with the color of the section ABOVE (Primary/Dark Navy) */}
       <div
         className="absolute top-0 left-0 w-full h-[30px] bg-primary"
@@ -101,9 +108,11 @@ const Offerings = () => {
                   {offering.description}
                 </p>
               </div>
-              <button className="w-full btn-gradient py-4 text-sm mt-auto">
-                {offering.buttonText}
-              </button>
+              <Link to={offering.path} className="w-full">
+                <button className="w-full btn-gradient py-4 text-sm mt-auto">
+                  {offering.buttonText}
+                </button>
+              </Link>
             </motion.div>
           ))}
         </div>

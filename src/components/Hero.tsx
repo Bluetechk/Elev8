@@ -41,7 +41,10 @@ const Hero = () => {
             <span className="text-secondary">Elev8</span> exists to close that gap.
           </h2>
           <div className="mt-8">
-            <button className="btn-gradient">
+            <button 
+              onClick={() => document.getElementById('offerings')?.scrollIntoView({ behavior: 'smooth' })}
+              className="btn-gradient"
+            >
               Explore now
             </button>
           </div>
