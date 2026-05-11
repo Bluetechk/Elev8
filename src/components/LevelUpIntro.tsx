@@ -1,5 +1,4 @@
-import { motion } from 'framer-motion';
-import { Sparkles, ArrowRight } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 const LevelUpIntro = () => {
   return (

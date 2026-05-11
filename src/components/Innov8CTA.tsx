@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Calendar, Monitor, Users, Mail } from 'lucide-react';
 
 const Innov8CTA = () => {

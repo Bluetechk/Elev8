@@ -1,5 +1,5 @@
 import codeJulyImg from '../assets/codeJuly.jpeg';
-import { Tag, Sparkles, Target, Rocket } from 'lucide-react';
+import { Sparkles, Target, Rocket } from 'lucide-react';
 
 const CodeJuly = () => {
   return (

@@ -1,4 +1,4 @@
-import { BookOpen, ShoppingBag, CheckCircle2, Star } from 'lucide-react';
+import { BookOpen, ShoppingBag, Star } from 'lucide-react';
 
 const LibraryServices = () => {
   return (

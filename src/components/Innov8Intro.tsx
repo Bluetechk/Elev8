@@ -1,4 +1,4 @@
-import { Globe, Lightbulb, Rocket } from 'lucide-react';
+import { Globe, Rocket } from 'lucide-react';
 
 const Innov8Intro = () => {
   return (

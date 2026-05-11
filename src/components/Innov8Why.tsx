@@ -1,4 +1,4 @@
-import { Target, Zap, Users } from 'lucide-react';
+import { Target, Users } from 'lucide-react';
 
 const Innov8Why = () => {
   return (

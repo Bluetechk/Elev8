@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, MessageSquare, Camera, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, MessageSquare, CheckCircle } from 'lucide-react';
 import { FacebookIcon, InstagramIcon, LinkedInIcon } from '../components/SocialIcons';
 
 const Contact = () => {
