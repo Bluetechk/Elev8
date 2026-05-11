@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #06221C; /* Original Dark Forest Green */
+  --color-secondary: #00D084; /* Original Vibrant Mint/Emerald Green */
+  --color-accent: #0091FF; /* Original Bright Digital Blue */
+  --color-text-dark: #0A110F;
+  --color-bg-light: #E9EFED; /* Teal-White Background */
+
+  --font-heading: "Montserrat", sans-serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-text-dark font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold uppercase;
+  }
+}
+
+@layer components {
+  .btn-gradient {
+    @apply px-8 py-3 bg-gradient-to-r from-secondary to-primary text-white font-bold rounded-md transition-all duration-300 hover:scale-105 active:scale-95 uppercase text-xs tracking-widest shadow-[0_0_20px_rgba(0,208,132,0.4)];
+  }
+
+  .card-offering {
+    @apply bg-white rounded-xl shadow-lg p-8 text-center border-b-8 border-secondary/20 hover:border-secondary transition-all duration-300 hover:shadow-2xl;
+  }
+
+  .glass-card {
+    @apply bg-primary/90 backdrop-blur-md border border-secondary/30 rounded-2xl shadow-xl;
+  }
+}
+
+.text-orange {
+  @apply text-secondary;
+}
+
+.bg-dark-blue {
+  @apply bg-primary;
+}
+
+.clip-section-notch {
+  clip-path: polygon(0 0, calc(50% - 30px) 0, 50% 30px, calc(50% + 30px) 0, 100% 0, 100% 100%, 0 100%);
+}
