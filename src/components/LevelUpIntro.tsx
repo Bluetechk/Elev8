@@ -10,7 +10,7 @@ const LevelUpIntro = () => {
           alt="Conference Atmosphere" 
           className="w-full h-full object-cover opacity-20 grayscale"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary via-primary/80 to-primary"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-primary via-primary/80 to-primary"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">

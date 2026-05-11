@@ -55,11 +55,11 @@ const CodeJuly = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                 <div className="flex items-start gap-3">
-                  <Target className="text-secondary mt-1 flex-shrink-0" size={18} />
+                  <Target className="text-secondary mt-1 shrink-0" size={18} />
                   <p className="text-sm">For the individual waiting for the right moment.</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Rocket className="text-secondary mt-1 flex-shrink-0" size={18} />
+                  <Rocket className="text-secondary mt-1 shrink-0" size={18} />
                   <p className="text-sm">For the student ready to go beyond theory.</p>
                 </div>
               </div>
