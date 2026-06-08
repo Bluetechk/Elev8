@@ -46,10 +46,7 @@ const Navbar = () => {
       <nav className="bg-white sticky top-0 z-50 py-1 px-6 shadow-md">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Link to="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 80 600 160" className="h-10 md:h-14 w-auto">
-              <text x="300" y="180" textAnchor="middle" stroke="#2C2F4A" strokeWidth="4" style={{ fontFamily: 'Nunito, Quicksand, sans-serif', fontWeight: 900, fontSize: '110px', fill: '#2C2F4A', letterSpacing: '-4px' }}>elev8</text>
-              <text x="300" y="220" textAnchor="middle" style={{ fontFamily: 'Nunito, Quicksand, sans-serif', fontWeight: 700, fontSize: '28px', fill: '#2C2F4A', letterSpacing: '0.2px' }}>rise intentionally, live exceptionally.</text>
-            </svg>
+            <img src="/elev8_logo.jpeg" alt="Elev8 logo" className="h-10 md:h-14 w-auto object-contain" />
           </Link>
 
           {/* Desktop Nav */}

@@ -1,9 +1,5 @@
 import { motion } from 'framer-motion';
-import { 
-  TrendingUp, 
-  Users2, 
-  Globe 
-} from 'lucide-react';
+import { TrendingUp, Users2, Globe, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import schoolLogo from '../assets/elev8 school of skill logo.png';
@@ -14,105 +10,193 @@ const offerings = [
   {
     title: "Elev8 School of Skills",
     subtitle: "Move from Learning to Earning",
-    description: "We equip individuals with practical, in-demand skills that translate into real opportunities. Through hands-on training, mentorship, and project-based learning, we prepare participants to earn, create, and compete in today’s evolving world. From digital and creative skills to professional and technical development, the School of Skills is designed to move people from potential to productivity—and from learning to earning.",
+    description: "Hands-on training, mentorship, and project-based learning that move people from potential to productivity — and from learning to earning.",
     logo: schoolLogo,
+    bgImage: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1400&auto=format&fit=crop",
     buttonText: "Explore Programs",
-    color: "bg-primary",
-    path: "/school-of-skill"
+    accentColor: "#00D084",
+    path: "/school-of-skill",
   },
   {
     title: "Elev8 Media",
     subtitle: "Shaping Narratives & Bringing Ideas to Life",
-    description: "Elev8 Media provides creative and strategic services in branding, content creation, and digital storytelling—helping individuals, businesses, and organizations communicate with clarity, confidence, and impact. Beyond services, we are building a platform that amplifies voices, tells meaningful stories, and positions brands to stand out in a crowded world.",
+    description: "Creative and strategic services in branding, content creation, and digital storytelling that help you communicate with clarity, confidence, and impact.",
     logo: mediaLogo,
+    bgImage: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?q=80&w=1400&auto=format&fit=crop",
     buttonText: "View Services",
-    color: "bg-accent",
-    path: "/media"
+    accentColor: "#0091FF",
+    path: "/media",
   },
   {
     title: "Elev8 Library",
     subtitle: "Making Reading Sexy Again",
-    description: "Cultivating a culture of reading, thinking, and continuous learning. Through curated resources, book access, reading programs, and intellectual communities, Elev8 Library exists to expand minds, inspire deeper thinking, and make reading sexy again. It is a hub for ideas, reflection, and personal growth, where knowledge becomes a tool for transformation.",
+    description: "Curated resources, book access, reading programs, and intellectual communities that expand minds and inspire deeper thinking.",
     logo: libraryLogo,
+    bgImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1400&auto=format&fit=crop",
     buttonText: "Explore Library",
-    color: "bg-primary",
-    path: "/library"
+    accentColor: "#00D084",
+    path: "/library",
   },
   {
     title: "Level Up Conference",
-    subtitle: "Design—Not Drift Through—Your Year",
-    description: "Our flagship annual experience designed to help individuals start the year with clarity, direction, and intention. This online gathering brings together thought leaders to explore key areas that shape a truly great year. Through powerful sessions and practical insights, participants are equipped to design—not drift through—their year, building a foundation for growth, purpose, and impact.",
+    subtitle: "Design — Not Drift Through — Your Year",
+    description: "Our flagship annual experience to start the year with clarity, direction, and intention through powerful sessions and practical insights.",
     icon: TrendingUp,
+    bgImage: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1400&auto=format&fit=crop",
     buttonText: "Join Conference",
-    color: "bg-accent",
-    path: "/levelup"
+    accentColor: "#0091FF",
+    path: "/levelup",
   },
   {
     title: "Welcome to College",
     subtitle: "Step Into Higher Education with Confidence",
-    description: "A focused career and life-readiness program for high school graduates preparing to transition into university. Held annually in August, this program equips participants with the mindset, clarity, and tools needed to make informed decisions about their academic and career paths, from course selection to leadership and future planning.",
+    description: "A focused career and life-readiness program equipping high school graduates with the mindset, clarity, and tools for university success.",
     icon: Users2,
+    bgImage: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1400&auto=format&fit=crop",
     buttonText: "Learn More",
-    color: "bg-primary",
-    path: "/welcome"
+    accentColor: "#00D084",
+    path: "/welcome",
   },
   {
     title: "Innov8 Afrika",
     subtitle: "Building Solutions, Shaping Africa's Future",
-    description: "A forward-thinking conference dedicated to entrepreneurs, creators, and innovators across Africa. Hosted annually in November, this virtual gathering creates a space for bold ideas, practical business insights, and meaningful connections for visionaries who are building solutions, creating opportunities, and shaping Africa’s future.",
+    description: "A forward-thinking virtual conference for entrepreneurs, creators, and innovators across Africa — bold ideas, practical insights, meaningful connections.",
     icon: Globe,
+    bgImage: "https://images.unsplash.com/photo-1529988885170-6dc8ce34ce6d?q=80&w=1400&auto=format&fit=crop",
     buttonText: "Explore Innov8",
-    color: "bg-accent",
-    path: "/innov8"
-  }
+    accentColor: "#0091FF",
+    path: "/innov8",
+  },
 ];
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: i * 0.1, ease: 'easeOut' },
+  }),
+};
 
 const Offerings = () => {
   return (
-    <section id="offerings" className="py-20 bg-bg-light relative">
-      {/* Notch with the color of the section ABOVE (Primary/Dark Navy) */}
+    <section id="offerings" className="py-28 bg-[#E9EFED] relative overflow-hidden">
+
+      {/* Top notch from above section */}
       <div
-        className="absolute top-0 left-0 w-full h-[30px] bg-primary"
+        className="absolute top-0 left-0 w-full h-[30px] bg-black"
         style={{ clipPath: 'polygon(calc(50% - 30px) 0, 50% 30px, calc(50% + 30px) 0)' }}
       />
 
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-24">
-          <h2 className="text-4xl md:text-5xl font-black text-primary uppercase">
-            OUR <span className="text-secondary">BRANDS & PROGRAMS</span>
-          </h2>
-          <p className="text-gray-600 mt-4 font-bold text-xs uppercase tracking-widest">
-            Explore the different arms of the Elev8 ecosystem.
-          </p>
-        </div>
+      {/* Subtle background texture */}
+      <div className="absolute inset-0 opacity-30 pointer-events-none"
+        style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(0,208,132,0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(0,145,255,0.06) 0%, transparent 50%)' }}
+      />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-24 max-w-screen-2xl mx-auto">
+      <div className="container mx-auto px-6">
+
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-20"
+        >
+          <span className="inline-block text-xs font-bold text-secondary uppercase tracking-[0.3em] mb-4">
+            The Elev8 Ecosystem
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-primary uppercase leading-none">
+            Our <span className="text-secondary">Brands</span> &{' '}
+            <span className="text-secondary">Programs</span>
+          </h2>
+          <p className="text-gray-500 mt-5 font-medium max-w-xl mx-auto text-sm md:text-base">
+            Six powerful arms of one mission — equipping people and businesses to grow without limits.
+          </p>
+          <div className="w-16 h-1 bg-gradient-to-r from-secondary to-accent rounded-full mx-auto mt-6" />
+        </motion.div>
+
+        {/* Cards Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {offerings.map((offering, index) => (
             <motion.div
               key={index}
-              whileHover={{ y: -10 }}
-              className="bg-white rounded-2xl shadow-xl p-10 text-center border-b-8 border-transparent hover:border-secondary transition-all duration-300 group h-full flex flex-col justify-between"
+              custom={index}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-60px' }}
+              whileHover={{ y: -8 }}
+              className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col"
+              style={{ borderBottom: `4px solid transparent` }}
             >
-              <div>
-                <div className={`${offering.color} w-28 h-28 rounded-full flex items-center justify-center mx-auto -mt-24 mb-10 border-4 border-white shadow-2xl relative overflow-hidden group-hover:bg-secondary transition-colors duration-300`}>
-                  <div className={`absolute inset-0 bg-gradient-to-br from-transparent to-accent opacity-50`} />
+              {/* Image Header */}
+              <div className="relative h-52 overflow-hidden">
+                <img
+                  src={offering.bgImage}
+                  alt={offering.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
+                {/* Logo / Icon badge */}
+                <div
+                  className="absolute bottom-[-20px] left-6 w-14 h-14 rounded-2xl border-2 border-white shadow-xl overflow-hidden flex items-center justify-center"
+                  style={{ backgroundColor: '#06221C' }}
+                >
                   {offering.logo ? (
-                    <img src={offering.logo} alt={offering.title} className="w-full h-full object-cover relative z-10" />
+                    <img src={offering.logo} alt={offering.title} className="w-full h-full object-cover" />
                   ) : (
-                    offering.icon && <offering.icon className="text-white relative z-10" size={52} />
+                    offering.icon && <offering.icon className="text-white" size={26} />
                   )}
                 </div>
-                <h3 className="text-2xl font-black text-primary mb-3 uppercase leading-tight">{offering.title}</h3>
-                <h4 className="text-base font-bold text-primary mb-6 uppercase leading-tight tracking-tight">{offering.subtitle}</h4>
-                <p className="text-gray-700 text-[14px] md:text-[15px] leading-relaxed mb-10 px-2 font-medium">
-                  {offering.description}
-                </p>
+
+                {/* Accent dot */}
+                <div
+                  className="absolute top-4 right-4 w-2.5 h-2.5 rounded-full animate-pulse"
+                  style={{ backgroundColor: offering.accentColor }}
+                />
               </div>
-              <Link to={offering.path} className="w-full">
-                <button className="w-full btn-gradient py-4 text-sm mt-auto">
-                  {offering.buttonText}
-                </button>
-              </Link>
+
+              {/* Body */}
+              <div className="flex flex-col flex-1 p-7 pt-10">
+                <div className="flex-1 space-y-3">
+                  <h3 className="text-lg font-black text-primary uppercase leading-tight group-hover:text-secondary transition-colors duration-300">
+                    {offering.title}
+                  </h3>
+                  <p
+                    className="text-xs font-bold uppercase tracking-wider"
+                    style={{ color: offering.accentColor }}
+                  >
+                    {offering.subtitle}
+                  </p>
+                  <p className="text-gray-500 text-sm leading-relaxed font-medium">
+                    {offering.description}
+                  </p>
+                </div>
+
+                {/* Bottom divider */}
+                <div
+                  className="h-px w-full my-5 opacity-20"
+                  style={{ backgroundColor: offering.accentColor }}
+                />
+
+                {/* CTA */}
+                <Link to={offering.path}>
+                  <motion.button
+                    whileHover={{ x: 4 }}
+                    className="w-full flex items-center justify-between px-5 py-3.5 rounded-xl text-white text-xs font-bold uppercase tracking-widest transition-all duration-300 group/btn"
+                    style={{ background: `linear-gradient(135deg, #06221C, ${offering.accentColor}22)`, border: `1px solid ${offering.accentColor}33` }}
+                  >
+                    <span style={{ color: offering.accentColor }}>{offering.buttonText}</span>
+                    <ArrowRight
+                      className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform"
+                      style={{ color: offering.accentColor }}
+                    />
+                  </motion.button>
+                </Link>
+              </div>
             </motion.div>
           ))}
         </div>

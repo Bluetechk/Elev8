@@ -1,7 +1,7 @@
 import { CheckCircle2 } from 'lucide-react';
 
 const MediaWhyUs = () => {
-  const reasons = [
+  const reasons = [ 
     {
       title: "We are a full-service agency",
       desc: "You do not need to coordinate multiple vendors for your branding, design, video, photography, and social media. We handle it all under one roof, ensuring consistency across every touchpoint of your brand."
