@@ -1,4 +1,5 @@
 import { Brain, Book, Users, Award, Target } from 'lucide-react';
+import welcomeImpactImg from '../assets/welcome_to_college.jfif';
 
 const WelcomeExperience = () => {
   return (
@@ -26,9 +27,9 @@ const WelcomeExperience = () => {
 
       {/* Full Immersive Middle Section */}
       <div className="relative py-32 md:py-48 flex items-center justify-center overflow-hidden">
-         <img 
-           src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80" 
-           alt="Students" 
+         <img
+           src={welcomeImpactImg}
+           alt="Welcome to College students"
            className="absolute inset-0 w-full h-full object-cover opacity-30 grayscale"
          />
          <div className="absolute inset-0 bg-gradient-to-b from-primary via-transparent to-primary"></div>

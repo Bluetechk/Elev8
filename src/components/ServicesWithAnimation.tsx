@@ -76,7 +76,6 @@ const ServicesWithAnimation = () => {
               <div className="relative space-y-4">
                 {servicesList.map((service, index) => {
                   const d = index - activeIndex;
-                  const distance = Math.abs(d);
                   const isFocused = d === 0;
                   const offsetX = isFocused ? 0 : (d < 0 ? -32 : 32);
                   const opacity = isFocused ? 1 : 0.45;
@@ -90,7 +89,7 @@ const ServicesWithAnimation = () => {
                       onClick={() => setActiveIndex(index)}
                       className="cursor-pointer"
                     >
-                      <div className={`relative overflow-hidden rounded-[2rem] border transition-all duration-300 ${isFocused ? 'bg-white/15 border-white/20 shadow-[0_20px_60px_rgba(255,255,255,0.12)]' : 'bg-white/5 border-white/10 hover:bg-white/10'} py-5 px-6 pr-32`}> 
+                      <div className={`relative overflow-hidden rounded-4xl border transition-all duration-300 ${isFocused ? 'bg-white/15 border-white/20 shadow-[0_20px_60px_rgba(255,255,255,0.12)]' : 'bg-white/5 border-white/10 hover:bg-white/10'} py-5 px-6 pr-32`}> 
                         <span className={`text-4xl md:text-5xl lg:text-6xl font-black tracking-tight transition-colors duration-300 ${isFocused ? 'text-white' : 'text-slate-300'}`}>
                           {service.name}
                         </span>

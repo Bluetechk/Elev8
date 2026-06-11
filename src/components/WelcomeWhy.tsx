@@ -1,59 +1,71 @@
 import { Compass, Target } from 'lucide-react';
+import mentorshipImg from '../assets/students_mentorship.jfif';
 
 const WelcomeWhy = () => {
   return (
     <section className="py-24 bg-white text-primary overflow-hidden">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-center gap-20 max-w-6xl mx-auto">
-          <div className="w-full lg:w-1/2 relative order-2 lg:order-1">
-             <div className="aspect-[4/5] relative rounded-[4rem] overflow-hidden shadow-2xl">
-                <img 
-                  src="https://images.unsplash.com/photo-1521791136064-7986c2923216?auto=format&fit=crop&q=80" 
-                  alt="Student Mentorship" 
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>
-                <div className="absolute top-12 left-12 right-12">
-                   <div className="bg-secondary p-8 rounded-3xl shadow-xl">
-                      <p className="text-primary font-black text-xs uppercase tracking-widest mb-1">Our Conviction</p>
-                      <p className="text-primary font-bold text-xl leading-snug italic">"The transition to university is one of the most critical pivots in a young person's life."</p>
-                   </div>
-                </div>
-             </div>
+        <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+          {/* Image — clean, no card framing */}
+          <div className="order-2 lg:order-1 relative">
+            <img
+              src={mentorshipImg}
+              alt="Students and mentors at Welcome to College"
+              className="w-full aspect-[4/5] object-cover rounded-3xl"
+            />
+            {/* subtle accent line, not a card */}
+            <div className="absolute -bottom-5 left-8 right-8 h-1.5 bg-secondary rounded-full" />
           </div>
 
-          <div className="w-full lg:w-1/2 order-1 lg:order-2">
+          {/* Text */}
+          <div className="order-1 lg:order-2">
+            <p className="text-secondary text-xs font-bold uppercase tracking-[0.3em] mb-4">
+              The Bridge to Your Future
+            </p>
             <h2 className="text-4xl md:text-6xl font-black mb-8 uppercase tracking-tighter leading-none">
               TRANSITION WITH <span className="text-secondary italic">CONFIDENCE</span>
             </h2>
-            
-            <div className="space-y-8 text-primary/70 text-lg leading-relaxed font-medium">
+
+            <div className="space-y-7 text-primary/70 text-lg leading-relaxed font-medium">
               <p>
-                Many students enter university without a clear sense of why they are there or where they are going. They drift through their courses, unsure of their career paths and unprepared for the demands of higher education.
-              </p>
-              
-              <p className="text-primary font-black text-2xl">
-                Welcome to College changes the narrative.
+                Too many students arrive at university unsure why they are there or where they are headed —
+                drifting through courses, second-guessing their path, and unprepared for the demands of
+                higher education.
               </p>
 
-              <div className="grid grid-cols-1 gap-6 pt-6">
-                <div className="flex gap-6 p-6 bg-bg-light rounded-3xl border border-primary/5 hover:border-secondary transition-all">
-                  <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-secondary shadow-sm">
-                    <Compass size={24} />
+              <p className="text-primary font-black text-2xl">
+                Welcome to College changes that.
+              </p>
+
+              {/* Conviction quote as a blockquote, not a card */}
+              <blockquote className="border-l-4 border-secondary pl-6 italic text-primary/80">
+                "The transition to university is one of the most critical pivots in a young person's life —
+                we make sure you cross it with clarity and purpose."
+              </blockquote>
+
+              {/* Key points as a clean icon list (card-free) */}
+              <div className="space-y-6 pt-4">
+                <div className="flex gap-5">
+                  <div className="w-11 h-11 shrink-0 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+                    <Compass size={22} />
                   </div>
                   <div>
-                    <h4 className="font-black uppercase tracking-tight mb-1">Career Clarity</h4>
-                    <p className="text-sm text-primary/60">Identify your strengths and align your academic choices with your long-term goals.</p>
+                    <h4 className="font-black uppercase tracking-tight mb-1 text-primary">Career Clarity</h4>
+                    <p className="text-base text-primary/60">
+                      Identify your strengths and align your academic choices with your long-term goals.
+                    </p>
                   </div>
                 </div>
 
-                <div className="flex gap-6 p-6 bg-bg-light rounded-3xl border border-primary/5 hover:border-secondary transition-all">
-                  <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-secondary shadow-sm">
-                    <Target size={24} />
+                <div className="flex gap-5">
+                  <div className="w-11 h-11 shrink-0 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+                    <Target size={22} />
                   </div>
                   <div>
-                    <h4 className="font-black uppercase tracking-tight mb-1">University Readiness</h4>
-                    <p className="text-sm text-primary/60">Develop the academic discipline and life skills required to thrive in a university environment.</p>
+                    <h4 className="font-black uppercase tracking-tight mb-1 text-primary">University Readiness</h4>
+                    <p className="text-base text-primary/60">
+                      Build the academic discipline and life skills you need to thrive — not just survive — on campus.
+                    </p>
                   </div>
                 </div>
               </div>

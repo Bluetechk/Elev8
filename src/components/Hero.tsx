@@ -1,35 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { ChevronDown, Zap, Users, BookOpen } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 import heroImage from '../assets/heroimage.jpg';
-
-/* ─── Animated Count-Up Number ─── */
-const CountUp = ({ to, suffix = '' }: { to: number; suffix?: string }) => {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-
-  useEffect(() => {
-    if (!inView) return;
-    let start = 0;
-    const duration = 1800;
-    const step = Math.ceil(to / (duration / 16));
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= to) { setCount(to); clearInterval(timer); }
-      else setCount(start);
-    }, 16);
-    return () => clearInterval(timer);
-  }, [inView, to]);
-
-  return <span ref={ref}>{count}{suffix}</span>;
-};
-
-const stats = [
-  { icon: Zap,     label: 'Business Arms',     value: 3,   suffix: '' },
-  { icon: Users,   label: 'Lives Impacted',    value: 500, suffix: '+' },
-  { icon: BookOpen,label: 'Programs & Events', value: 6,   suffix: '' },
-];
+import LogoFrameAnimation from './LogoFrameAnimation';
 
 const Hero = () => {
   return (
@@ -40,8 +12,8 @@ const Hero = () => {
         className="relative min-h-[88vh] flex flex-col items-center justify-center text-center px-6 py-24 bg-cover bg-center overflow-hidden"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/80" />
+        {/* Dark overlay so the bright hero image doesn't wash out the text */}
+        <div className="absolute inset-0 bg-black/45 pointer-events-none" />
 
         {/* Floating ambient orbs */}
         <motion.div
@@ -83,10 +55,9 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.25 }}
             className="max-w-2xl text-white/65 text-base md:text-lg leading-relaxed font-medium mb-10"
           >
-            A youth-focused movement built to equip individuals and businesses to
-            live <span className="text-secondary font-bold">intentionally</span>,
-            grow <span className="text-secondary font-bold">purposefully</span>,
-            and impact <span className="text-secondary font-bold">meaningfully</span>.
+            We are not just a company. We are a movement and everyghing we build is in service of one thing: the elevation of people. Elev8 Inc. is a  youth-focused, growth-oriented company based inMonrovia, liberia. We extt to equip individuals and businesses to live internationally, grow purposefully, and impact meanifully. Through practical skills training, professionally creative services, and powerful experiences, we are on a mission to unlock the potential of  <span className="text-secondary font-bold">people</span> and businesses across <span className="text-secondary font-bold">Africa</span>, and beyond.
+           
+           
           </motion.p>
 
           {/* CTAs */}
@@ -98,35 +69,12 @@ const Hero = () => {
           >
             <button
               onClick={() => document.getElementById('offerings')?.scrollIntoView({ behavior: 'smooth' })}
-              className="btn-gradient px-10 py-4 text-sm"
+              className="px-10 py-4 rounded-md border border-white/25 text-white text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all duration-300"
             >
               Explore Programs
             </button>
-            <a
-              href="#story"
-              className="px-10 py-4 rounded-md border border-white/25 text-white text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all duration-300"
-            >
-              Our Story
-            </a>
           </motion.div>
 
-          {/* Stats row */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-16 grid grid-cols-3 gap-8 md:gap-16"
-          >
-            {stats.map(({ icon: Icon, label, value, suffix }) => (
-              <div key={label} className="text-center">
-                <Icon className="w-5 h-5 text-secondary mx-auto mb-2 opacity-80" />
-                <div className="text-3xl md:text-4xl font-black text-white">
-                  <CountUp to={value} suffix={suffix} />
-                </div>
-                <div className="text-white/40 text-[10px] font-bold uppercase tracking-widest mt-1">{label}</div>
-              </div>
-            ))}
-          </motion.div>
         </div>
 
         {/* Scroll indicator */}
@@ -141,78 +89,16 @@ const Hero = () => {
             <ChevronDown className="w-5 h-5" />
           </motion.div>
         </motion.div>
-        {/* Bottom blending gradient to Our Story */}
-        <div className="absolute left-0 right-0 bottom-0 h-40 pointer-events-none z-20 bg-gradient-to-b from-transparent to-primary" />
       </div>
 
-      {/* ══════════════ OUR STORY SECTION ══════════════ */}
-      <div id="story" className="bg-primary text-white py-28 relative overflow-hidden">
+      {/* ══════════════ MOTION FRAME ANIMATION ══════════════ */}
+      {/* On mobile the section matches the 16:9 frame ratio so the whole frame
+          is visible (no cropping); on md+ it fills the full viewport height. */}
+      <div id="story" className="relative w-full aspect-video md:aspect-auto md:h-screen">
+        <LogoFrameAnimation minimal className="absolute inset-0" />
 
-        {/* Background decoration */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[30rem] font-black text-white/[0.03] pointer-events-none select-none z-0 leading-none">
-          ∞
-        </div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
-
-        <div className="container mx-auto px-6 md:px-12 relative z-10">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-
-            {/* Left: Text */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="space-y-7"
-            >
-              <div>
-                <p className="text-secondary text-xs font-bold uppercase tracking-[0.3em] mb-3">Who We Are</p>
-                <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter text-white leading-none">
-                  Our <span className="text-secondary">Story</span>
-                </h2>
-                <div className="w-16 h-1 bg-secondary rounded-full mt-5" />
-              </div>
-
-              <p className="text-white/70 text-base md:text-lg leading-relaxed font-medium">
-                Elev8 was born from a bold conviction — that people and businesses around us are full of{' '}
-                <span className="text-secondary font-bold">potential</span> the world is not yet seeing.
-                What began as a spark became a movement, and that movement became a company.
-              </p>
-
-              <div className="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 space-y-4 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-secondary to-transparent rounded-l-3xl" />
-                <p className="text-white/75 leading-relaxed">
-                  The name{' '}
-                  <span className="text-secondary font-black italic">"Elev8"</span>{' '}
-                  is a stylized form of "Elevate". The number 8, turned on its side, becomes{' '}
-                  <span className="text-secondary font-black text-2xl">∞</span> — infinity.
-                  Limitless growth. Unending possibility.
-                </p>
-                <p className="italic text-secondary font-bold text-base">
-                  "There is no person, no business, and no community that has reached their ceiling. There is always a next level."
-                </p>
-              </div>
-
-              <p className="text-white/35 text-xs uppercase tracking-[0.25em] font-bold pt-2">
-                Three business arms — one mission.
-              </p>
-            </motion.div>
-
-            {/* Right: Founder image + frame animation */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.15 }}
-              className="space-y-6"
-            >
-              <div className="rounded-3xl p-8 bg-transparent border border-white/10 h-[320px] flex items-center justify-center">
-                <p className="text-white/40 uppercase tracking-widest text-sm">Founder visual removed</p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
+        {/* Subtle dark overlay to keep the bright frames from washing out. */}
+        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
       </div>
     </section>
   );

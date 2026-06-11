@@ -38,34 +38,36 @@ const Footer = () => {
 
   return (
     <footer className="w-full bg-[#0A0D14] text-white">
-      {/* Final CTA Section */}
-      <section className="relative py-24 px-6 overflow-hidden">
-        {/* Dynamic Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-[#004D40] to-secondary opacity-90" />
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10 mix-blend-overlay" />
+      {/* Final CTA Section — hidden on the contact page (it's already the contact section) */}
+      {location.pathname !== '/contact' && (
+        <section className="relative py-24 px-6 overflow-hidden">
+          {/* Dynamic Gradient Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary via-[#004D40] to-secondary opacity-90" />
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10 mix-blend-overlay" />
 
-        <div className="container mx-auto relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-6xl font-black mb-6 uppercase tracking-tighter leading-tight">
-              READY TO <span className="text-secondary italic">ELEVATE</span>
-            </h2>
-            <p className="text-xl md:text-2xl font-bold mb-12 uppercase tracking-widest text-white/80">
-              Take the first step <span className="text-secondary">NOW!</span>
-            </p>
+          <div className="container mx-auto relative z-10 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl md:text-6xl font-black mb-6 uppercase tracking-tighter leading-tight">
+                READY TO <span className="text-secondary italic">ELEVATE</span>
+              </h2>
+              <p className="text-xl md:text-2xl font-bold mb-12 uppercase tracking-widest text-white/80">
+                Take the first step <span className="text-secondary">NOW!</span>
+              </p>
 
-            <Link to="/contact">
-              <button className="bg-white text-primary px-12 py-5 font-black uppercase text-sm tracking-[0.2em] rounded-2xl hover:bg-secondary hover:text-white transition-all shadow-2xl hover:scale-105 active:scale-95 group">
-                Contact Us Today
-                <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
-              </button>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+              <Link to="/contact">
+                <button className="bg-white text-primary px-12 py-5 font-black uppercase text-sm tracking-[0.2em] rounded-2xl hover:bg-secondary hover:text-white transition-all shadow-2xl hover:scale-105 active:scale-95 group">
+                  Contact Us Today
+                  <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                </button>
+              </Link>
+            </motion.div>
+          </div>
+        </section>
+      )}
 
       {/* Main Footer Content */}
       <div className="container mx-auto px-6 pt-20 pb-12">

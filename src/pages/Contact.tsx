@@ -75,75 +75,79 @@ const Contact = () => {
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             
-            {/* Left side: Info & Socials */}
-            <div className="space-y-12">
+            {/* Left side: Info & Socials (clean, card-free) */}
+            <div className="space-y-12 lg:pt-4">
               <div>
-                <h2 className="text-3xl font-black text-primary mb-8 uppercase tracking-tight">Contact Information</h2>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-6">
+                <h2 className="text-3xl font-black text-primary mb-2 uppercase tracking-tight">Get in Touch</h2>
+                <p className="text-gray-500 font-medium mb-8 max-w-md">
+                  Reach us directly through any of the channels below — we typically respond within a day.
+                </p>
+
+                <div className="divide-y divide-gray-200">
                   {contactInfo.map((info, index) => (
-                    <motion.a
+                    <a
                       key={index}
                       href={info.link}
                       target={info.link.startsWith('http') ? '_blank' : undefined}
                       rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      whileHover={{ x: 10 }}
-                      className="flex items-center gap-6 bg-white p-6 rounded-2xl shadow-lg border border-gray-100 group"
+                      className="flex items-center gap-5 py-5 group"
                     >
-                      <div className={`${info.color} p-4 rounded-xl group-hover:scale-110 transition-transform`}>
-                        <info.icon size={24} />
+                      <div className={`${info.color} p-3 rounded-xl group-hover:scale-110 transition-transform`}>
+                        <info.icon size={22} />
                       </div>
                       <div>
-                        <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">{info.label}</p>
-                        <p className="text-lg font-black text-primary">{info.value}</p>
+                        <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-0.5">{info.label}</p>
+                        <p className="text-lg font-black text-primary group-hover:text-secondary transition-colors">{info.value}</p>
                       </div>
-                    </motion.a>
+                    </a>
                   ))}
                 </div>
               </div>
 
+              {/* Inline WhatsApp prompt + socials */}
+              <div className="border-l-4 border-secondary pl-6">
+                <h3 className="text-lg font-black text-primary uppercase tracking-tight mb-1">Prefer to chat?</h3>
+                <p className="text-gray-500 font-medium mb-5 max-w-md">
+                  Reach our community leads on WhatsApp for a faster response.
+                </p>
+                <a
+                  href="https://wa.me/231881177501"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-secondary text-white px-7 py-3 rounded-full font-bold uppercase text-xs tracking-widest hover:brightness-110 transition-all shadow-lg shadow-secondary/20"
+                >
+                  <MessageSquare size={16} />
+                  Chat on WhatsApp
+                </a>
+              </div>
+
               <div>
-                <h2 className="text-2xl font-black text-primary mb-6 uppercase tracking-tight">Follow Our Journey</h2>
-                <div className="flex gap-4">
+                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-[0.3em] mb-5">Follow Our Journey</h4>
+                <div className="flex gap-3">
                   <motion.a
                     href="https://facebook.com/share/p/14bctACaDPK/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ y: -5, scale: 1.1 }}
-                    className="w-14 h-14 bg-white rounded-2xl shadow-md flex items-center justify-center text-primary hover:text-secondary border border-gray-100 transition-colors"
+                    whileHover={{ y: -4 }}
+                    className="w-11 h-11 rounded-full flex items-center justify-center text-primary hover:bg-secondary hover:text-white border border-gray-200 transition-colors"
                   >
-                    <FacebookIcon size={24} />
+                    <FacebookIcon size={20} />
                   </motion.a>
                   <motion.a
                     href="#"
-                    whileHover={{ y: -5, scale: 1.1 }}
-                    className="w-14 h-14 bg-white rounded-2xl shadow-md flex items-center justify-center text-primary hover:text-secondary border border-gray-100 transition-colors"
+                    whileHover={{ y: -4 }}
+                    className="w-11 h-11 rounded-full flex items-center justify-center text-primary hover:bg-secondary hover:text-white border border-gray-200 transition-colors"
                   >
-                    <InstagramIcon size={24} />
+                    <InstagramIcon size={20} />
                   </motion.a>
                   <motion.a
                     href="#"
-                    whileHover={{ y: -5, scale: 1.1 }}
-                    className="w-14 h-14 bg-white rounded-2xl shadow-md flex items-center justify-center text-primary hover:text-secondary border border-gray-100 transition-colors"
+                    whileHover={{ y: -4 }}
+                    className="w-11 h-11 rounded-full flex items-center justify-center text-primary hover:bg-secondary hover:text-white border border-gray-200 transition-colors"
                   >
-                    <LinkedInIcon size={24} />
+                    <LinkedInIcon size={20} />
                   </motion.a>
                 </div>
-              </div>
-
-              <div className="bg-secondary/10 p-8 rounded-3xl border border-secondary/20 relative overflow-hidden">
-                <div className="absolute top-0 right-0 p-4 text-secondary/20">
-                  <MessageSquare size={120} />
-                </div>
-                <h3 className="text-xl font-black text-primary mb-2 uppercase">Quick Support?</h3>
-                <p className="text-gray-600 font-medium mb-6">Need a faster response? Reach out to our community leads on WhatsApp.</p>
-                <a 
-                  href="https://wa.me/231881177501" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-block bg-secondary text-white px-8 py-3 rounded-full font-bold uppercase text-xs tracking-widest hover:brightness-110 transition-all shadow-lg shadow-secondary/20"
-                >
-                  Chat on WhatsApp
-                </a>
               </div>
             </div>
 

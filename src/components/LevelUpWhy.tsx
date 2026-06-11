@@ -1,4 +1,5 @@
 import { CheckCircle2, TrendingUp, Users } from 'lucide-react';
+import levelupImg from '../assets/levelupconference.jfif';
 
 const LevelUpWhy = () => {
   return (
@@ -43,9 +44,9 @@ const LevelUpWhy = () => {
           <div className="w-full lg:w-1/2 relative">
              {/* Immersive Background Card */}
              <div className="aspect-square relative rounded-[4rem] overflow-hidden shadow-2xl">
-                <img 
-                  src="https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&q=80" 
-                  alt="Planning" 
+                <img
+                  src={levelupImg}
+                  alt="Level Up Conference"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-primary/40 mix-blend-multiply"></div>

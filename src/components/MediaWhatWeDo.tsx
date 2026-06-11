@@ -1,92 +1,122 @@
 import { motion } from 'framer-motion';
+import { CircularTestimonials } from './ui/circular-testimonials';
+
+import brandingImg from '../assets/branding.jfif';
+import graphicImg from '../assets/graphicsdesign_Photoshop.jfif';
+import videoImg from '../assets/videographics.jfif';
+import photoImg from '../assets/photography.jfif';
+import webImg from '../assets/webdesign (2).jfif';
+import smmImg from '../assets/Media_socialmedia_managemt.jfif';
+import marketingImg from '../assets/socialmedia_marketing.jfif';
+
+// Each "testimonial" is a media service: name = service, designation = label,
+// quote = description, src = image. (Images are placeholders for now.)
+const services = [
+  {
+    name: 'Branding',
+    designation: 'Identity & Strategy',
+    quote:
+      'Your brand is more than a logo — it is the total impression you leave on the world. We build cohesive identities, from strategy and logo design to color systems and visual guidelines.',
+    src: brandingImg,
+  },
+  {
+    name: 'Graphic Design',
+    designation: 'Visual Content',
+    quote:
+      'Compelling visuals that capture attention — flyers, social graphics, banners, event materials, and branded stationery, all purposeful, polished, and on-brand.',
+    src: graphicImg,
+  },
+  {
+    name: 'Videography',
+    designation: 'Story in Motion',
+    quote:
+      'Video is the most powerful storytelling tool a business has. Promotional videos, brand films, event coverage, and testimonials — handled from concept to final delivery.',
+    src: videoImg,
+  },
+  {
+    name: 'Photography',
+    designation: 'Brand Imagery',
+    quote:
+      'Professional photography that elevates how your brand is perceived — product shots, corporate portraits, event coverage, and brand photography that builds credibility.',
+    src: photoImg,
+  },
+  {
+    name: 'Web Design',
+    designation: 'Your Digital Home',
+    quote:
+      'Clean, professional, mobile-ready websites that represent your brand accurately and deliver a smooth experience — building trust before a single word is read.',
+    src: webImg,
+  },
+  {
+    name: 'Social Media Management',
+    designation: 'Always-On Presence',
+    quote:
+      'We manage your Facebook and Instagram end-to-end — content strategy, creation, scheduling, and audience engagement — keeping your brand alive online while you run your business.',
+    src: smmImg,
+  },
+  {
+    name: 'Social Media Marketing',
+    designation: 'Targeted Campaigns',
+    quote:
+      'Strategic, data-informed campaigns that put your brand in front of the right audience at the right time — driving traffic, leads, event turnout, and brand awareness.',
+    src: marketingImg,
+  },
+];
 
 const MediaWhatWeDo = () => {
   return (
-    <section className="relative py-12 bg-white text-primary overflow-hidden">
+    <section className="relative py-24 bg-white text-primary overflow-hidden">
       {/* Decorative Ribbons */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-10">
         <svg className="w-full h-full" viewBox="0 0 1440 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <motion.path 
+          <motion.path
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ pathLength: 1, opacity: 1 }}
-            transition={{ duration: 4, repeat: Infinity, repeatType: "reverse", delay: 1 }}
-            d="M-100 100C200 200 400 0 600 100C800 200 1000 0 1200 100C1400 200 1600 0 1800 100" 
-            stroke="var(--color-secondary)" 
-            strokeWidth="30" 
-            strokeLinecap="round" 
+            transition={{ duration: 4, repeat: Infinity, repeatType: 'reverse', delay: 1 }}
+            d="M-100 100C200 200 400 0 600 100C800 200 1000 0 1200 100C1400 200 1600 0 1800 100"
+            stroke="var(--color-secondary)"
+            strokeWidth="30"
+            strokeLinecap="round"
           />
         </svg>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-5xl mx-auto bg-white rounded-3xl p-12 md:p-20 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-primary/5 relative overflow-hidden">
-          {/* Subtle background accent */}
-          <div className="absolute -top-24 -right-24 w-64 h-64 bg-secondary/5 rounded-full blur-3xl"></div>
+        {/* Header */}
+        <div className="max-w-2xl mx-auto text-center mb-12">
+          <h2 className="text-3xl md:text-5xl font-black mb-4 leading-tight uppercase tracking-tight">
+            WHAT WE <span className="text-secondary">DO</span>
+          </h2>
+          <p className="text-primary/70 text-lg font-medium">
+            A comprehensive range of creative and digital services — each built to help your brand
+            communicate with clarity, consistency, and impact.
+          </p>
+        </div>
 
-          <div className="relative z-10">
-            <h2 className="text-3xl md:text-5xl font-black mb-8 leading-tight uppercase tracking-tight">
-              WHAT WE <span className="text-secondary">DO</span>
-            </h2>
+        {/* Circular service showcase — open in the section, room to breathe */}
+        <div className="flex justify-center">
+          <CircularTestimonials
+            testimonials={services}
+            autoplay
+            colors={{
+              name: '#06221C',
+              designation: '#00D084',
+              testimony: 'rgba(6,34,28,0.7)',
+              arrowBackground: '#06221C',
+              arrowForeground: '#ffffff',
+              arrowHoverBackground: '#00D084',
+            }}
+            fontSizes={{ name: '28px', designation: '13px', quote: '18px' }}
+          />
+        </div>
 
-            <div className="space-y-12 text-primary/70 text-lg leading-relaxed">
-              <p className="font-medium text-primary">
-                We offer a comprehensive range of creative and digital marketing services, each designed to help your brand communicate with clarity, consistency, and impact.
-              </p>
-
-              {/* Service Grid 1 */}
-              <div className="grid md:grid-cols-3 gap-12 pt-8">
-                <div className="space-y-4 border-l-4 border-secondary pl-6">
-                  <h4 className="text-xl font-black text-primary uppercase">Branding</h4>
-                  <p className="text-sm text-primary/60">Your brand is more than a logo — it is the total impression your business leaves on the world. We help businesses develop strong, cohesive brand identities that accurately represent who they are, what they stand for, and why they matter. From brand strategy and logo design to color systems and visual guidelines, we build brands that are built to last.</p>
-                </div>
-
-                <div className="space-y-4 border-l-4 border-secondary pl-6">
-                  <h4 className="text-xl font-black text-primary uppercase">Graphic Design</h4>
-                  <p className="text-sm text-primary/60">We create compelling visual content that communicates your message and captures attention. Whether you need promotional flyers, social media graphics, banners, event materials, or branded stationery, our design work is purposeful, polished, and aligned with your brand identity.</p>
-                </div>
-
-                <div className="space-y-4 border-l-4 border-secondary pl-6">
-                  <h4 className="text-xl font-black text-primary uppercase">Videography</h4>
-                  <p className="text-sm text-primary/60">Video is the most powerful storytelling tool available to a business today. Our videography services cover promotional videos, brand films, event documentation, product showcases, testimonials, and more. We handle everything from concept to final delivery — producing content that engages, informs, and converts.</p>
-                </div>
-              </div>
-
-              {/* Service Grid 2 */}
-              <div className="grid md:grid-cols-3 gap-12 pt-8 border-t border-primary/5">
-                <div className="space-y-4 border-l-4 border-secondary pl-6">
-                  <h4 className="text-xl font-black text-primary uppercase">Photography</h4>
-                  <p className="text-sm text-primary/60">First impressions matter, and professional photography is one of the most direct ways to elevate the perceived quality of your brand. We offer product photography, team and corporate portraits, event photography, and general brand photography that gives your business the visual credibility it deserves.</p>
-                </div>
-
-                <div className="space-y-4 border-l-4 border-secondary pl-6">
-                  <h4 className="text-xl font-black text-primary uppercase">Web Design</h4>
-                  <p className="text-sm text-primary/60">Your website is your most important business address. We design and develop clean, professional, and functional websites that represent your brand accurately, perform well on mobile devices, and deliver a smooth experience for every visitor. A well-designed website builds trust before a single word is read.</p>
-                </div>
-
-                <div className="space-y-4 border-l-4 border-secondary pl-6">
-                  <h4 className="text-xl font-black text-primary uppercase">S.M. Management</h4>
-                  <p className="text-sm text-primary/60">Consistency on social media is what separates growing brands from stagnant ones. We manage your Facebook and Instagram presence end-to-end — developing your content strategy, creating your posts, scheduling and publishing, and engaging with your audience on your behalf. You focus on running your business; we keep your brand alive online.</p>
-                </div>
-              </div>
-
-              {/* Final Service / CTA link style */}
-              <div className="pt-12 border-t border-primary/10">
-                 <div className="space-y-4 border-l-4 border-accent pl-6">
-                  <h4 className="text-xl font-black text-primary uppercase">Social Media Marketing</h4>
-                  <p className="text-sm text-primary/60">Beyond management, we design and execute targeted social media marketing campaigns that put your brand in front of the right audience at the right time. Our campaigns are strategic, data-informed, and built around your specific business goals — whether that is driving foot traffic, generating leads, promoting an event, or building brand awareness.</p>
-                </div>
-              </div>
-
-              <div className="pt-8 text-center">
-                <p className="text-2xl font-black text-primary uppercase tracking-tighter">
-                  YOUR BRAND DESERVES TO BE <span className="text-secondary italic">SEEN.</span>
-                </p>
-                <p className="text-secondary font-bold uppercase tracking-[0.3em] text-sm mt-2">
-                  Let us make sure it is.
-                </p>
-              </div>
-            </div>
-          </div>
+        <div className="pt-12 text-center">
+          <p className="text-2xl font-black text-primary uppercase tracking-tighter">
+            YOUR BRAND DESERVES TO BE <span className="text-secondary italic">SEEN.</span>
+          </p>
+          <p className="text-secondary font-bold uppercase tracking-[0.3em] text-sm mt-2">
+            Let us make sure it is.
+          </p>
         </div>
       </div>
     </section>

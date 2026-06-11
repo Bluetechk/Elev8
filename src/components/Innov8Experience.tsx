@@ -1,4 +1,5 @@
 import { MessageSquare, Briefcase, Cpu, Share2, Compass } from 'lucide-react';
+import practicalImg from '../assets/pratical business knowledge.jfif';
 
 const Innov8Experience = () => {
   return (
@@ -13,7 +14,10 @@ const Innov8Experience = () => {
           </p>
         </div>
         <div className="w-full lg:w-1/2 p-12 md:p-24 flex flex-col justify-center bg-white/5 group relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-5 group-hover:opacity-10 transition-opacity duration-700"></div>
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-5 group-hover:opacity-10 transition-opacity duration-700"
+            style={{ backgroundImage: `url(${practicalImg})` }}
+          ></div>
           <div className="relative z-10">
             <Briefcase className="text-secondary mb-8" size={40} />
             <h3 className="text-3xl font-black uppercase tracking-tight mb-6">Practical <span className="text-secondary italic">Business Knowledge</span></h3>

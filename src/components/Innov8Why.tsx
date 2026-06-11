@@ -1,4 +1,5 @@
 import { Target, Users } from 'lucide-react';
+import innov8AfrikaImg from '../assets/innov8_Afrika.jfif';
 
 const Innov8Why = () => {
   return (
@@ -7,9 +8,9 @@ const Innov8Why = () => {
         <div className="flex flex-col lg:flex-row items-center gap-20 max-w-6xl mx-auto">
           <div className="w-full lg:w-1/2 relative">
              <div className="aspect-4/5 relative rounded-[4rem] overflow-hidden shadow-2xl">
-                <img 
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80" 
-                  alt="Innovation" 
+                <img
+                  src={innov8AfrikaImg}
+                  alt="Innov8 Afrika"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>

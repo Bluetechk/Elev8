@@ -53,9 +53,9 @@ const LevelUpRegistration = () => {
 
           <div className="w-full lg:w-1/2">
              <div className="relative aspect-square rounded-[3rem] overflow-hidden shadow-2xl">
-                <img 
-                  src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&q=80" 
-                  alt="Success" 
+                <img
+                  src="https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&q=80"
+                  alt="Planning the year ahead"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-12">

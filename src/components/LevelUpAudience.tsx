@@ -1,4 +1,5 @@
 import { Briefcase, Paintbrush } from 'lucide-react';
+import entrepreneurImg from '../assets/intepreneur_levelup.jfif';
 
 const LevelUpAudience = () => {
   return (
@@ -7,9 +8,9 @@ const LevelUpAudience = () => {
         {/* Entrepreneurs Side */}
         <div className="relative w-full lg:w-1/2 flex items-center p-12 md:p-24 overflow-hidden group">
           <div className="absolute inset-0 z-0">
-             <img 
-               src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80" 
-               alt="Entrepreneurs" 
+             <img
+               src={entrepreneurImg}
+               alt="Entrepreneurs"
                className="w-full h-full object-cover opacity-30 grayscale group-hover:scale-110 group-hover:grayscale-0 transition-all duration-1000"
              />
              <div className="absolute inset-0 bg-primary/60"></div>

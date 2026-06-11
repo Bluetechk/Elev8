@@ -37,9 +37,9 @@ const LevelUpIntro = () => {
             <div className="relative group">
                <div className="absolute -inset-4 bg-secondary/20 rounded-[3rem] blur-2xl group-hover:bg-secondary/40 transition-all duration-700"></div>
                <div className="relative rounded-[2.5rem] overflow-hidden border-2 border-white/10 shadow-2xl">
-                 <img 
-                   src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80" 
-                   alt="Collaborative Planning" 
+                 <img
+                   src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80"
+                   alt="Speaker presenting to a conference audience"
                    className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
                  />
                </div>

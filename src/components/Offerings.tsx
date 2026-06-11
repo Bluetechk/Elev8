@@ -3,16 +3,21 @@ import { TrendingUp, Users2, Globe, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import schoolLogo from '../assets/elev8 school of skill logo.png';
+import schoolBg from '../assets/schoolofskill.jfif';
 import mediaLogo from '../assets/elev8Media.jpeg';
 import libraryLogo from '../assets/elev8 library logo.png';
-
+import mediaBg from '../assets/mediaimage1.jpeg'
+import libraryBg from '../assets/mediaimage4.jpeg';
+import levelupBg from '../assets/levelupconference.jfif';
+import welcomeBg from '../assets/welcomtocollege.jpeg';
+import innov8Bg from '../assets/levelup.jfif';
 const offerings = [
   {
     title: "Elev8 School of Skills",
     subtitle: "Move from Learning to Earning",
     description: "Hands-on training, mentorship, and project-based learning that move people from potential to productivity — and from learning to earning.",
     logo: schoolLogo,
-    bgImage: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1400&auto=format&fit=crop",
+    bgImage: schoolBg,
     buttonText: "Explore Programs",
     accentColor: "#00D084",
     path: "/school-of-skill",
@@ -22,7 +27,7 @@ const offerings = [
     subtitle: "Shaping Narratives & Bringing Ideas to Life",
     description: "Creative and strategic services in branding, content creation, and digital storytelling that help you communicate with clarity, confidence, and impact.",
     logo: mediaLogo,
-    bgImage: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?q=80&w=1400&auto=format&fit=crop",
+    bgImage: mediaBg,
     buttonText: "View Services",
     accentColor: "#0091FF",
     path: "/media",
@@ -32,7 +37,7 @@ const offerings = [
     subtitle: "Making Reading Sexy Again",
     description: "Curated resources, book access, reading programs, and intellectual communities that expand minds and inspire deeper thinking.",
     logo: libraryLogo,
-    bgImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1400&auto=format&fit=crop",
+    bgImage: libraryBg,
     buttonText: "Explore Library",
     accentColor: "#00D084",
     path: "/library",
@@ -42,7 +47,7 @@ const offerings = [
     subtitle: "Design — Not Drift Through — Your Year",
     description: "Our flagship annual experience to start the year with clarity, direction, and intention through powerful sessions and practical insights.",
     icon: TrendingUp,
-    bgImage: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1400&auto=format&fit=crop",
+    bgImage: levelupBg,
     buttonText: "Join Conference",
     accentColor: "#0091FF",
     path: "/levelup",
@@ -52,7 +57,7 @@ const offerings = [
     subtitle: "Step Into Higher Education with Confidence",
     description: "A focused career and life-readiness program equipping high school graduates with the mindset, clarity, and tools for university success.",
     icon: Users2,
-    bgImage: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1400&auto=format&fit=crop",
+    bgImage: welcomeBg,
     buttonText: "Learn More",
     accentColor: "#00D084",
     path: "/welcome",
@@ -62,29 +67,29 @@ const offerings = [
     subtitle: "Building Solutions, Shaping Africa's Future",
     description: "A forward-thinking virtual conference for entrepreneurs, creators, and innovators across Africa — bold ideas, practical insights, meaningful connections.",
     icon: Globe,
-    bgImage: "https://images.unsplash.com/photo-1529988885170-6dc8ce34ce6d?q=80&w=1400&auto=format&fit=crop",
+    bgImage: innov8Bg,
     buttonText: "Explore Innov8",
     accentColor: "#0091FF",
     path: "/innov8",
   },
 ];
 
-const cardVariants = {
+const cardVariants: any = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.1, ease: 'easeOut' },
+    transition: { duration: 0.6, delay: i * 0.1, ease: [0.25, 0.1, 0.25, 1] },
   }),
 };
 
 const Offerings = () => {
   return (
-    <section id="offerings" className="py-28 bg-[#E9EFED] relative overflow-hidden">
+    <section id="offerings" className="py-28 bg-bg-light relative overflow-hidden">
 
       {/* Top notch from above section */}
       <div
-        className="absolute top-0 left-0 w-full h-[30px] bg-black"
+        className="absolute top-0 left-0 w-full h-7.5 bg-black"
         style={{ clipPath: 'polygon(calc(50% - 30px) 0, 50% 30px, calc(50% + 30px) 0)' }}
       />
 
@@ -113,7 +118,7 @@ const Offerings = () => {
           <p className="text-gray-500 mt-5 font-medium max-w-xl mx-auto text-sm md:text-base">
             Six powerful arms of one mission — equipping people and businesses to grow without limits.
           </p>
-          <div className="w-16 h-1 bg-gradient-to-r from-secondary to-accent rounded-full mx-auto mt-6" />
+          <div className="w-16 h-1 bg-linear-to-r from-secondary to-accent rounded-full mx-auto mt-6" />
         </motion.div>
 
         {/* Cards Grid */}
@@ -126,75 +131,58 @@ const Offerings = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: '-60px' }}
-              whileHover={{ y: -8 }}
-              className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col"
-              style={{ borderBottom: `4px solid transparent` }}
+              whileHover={{ y: -10 }}
+              className="group relative flex h-108 flex-col justify-end overflow-hidden rounded-3xl shadow-lg transition-all duration-500 hover:shadow-2xl"
             >
-              {/* Image Header */}
-              <div className="relative h-52 overflow-hidden">
-                <img
-                  src={offering.bgImage}
-                  alt={offering.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+              {/* Full-bleed image — the hero of the card */}
+              <img
+                src={offering.bgImage}
+                alt={offering.title}
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-900 ease-out group-hover:scale-105"
+              />
 
-                {/* Logo / Icon badge */}
-                <div
-                  className="absolute bottom-[-20px] left-6 w-14 h-14 rounded-2xl border-2 border-white shadow-xl overflow-hidden flex items-center justify-center"
-                  style={{ backgroundColor: '#06221C' }}
-                >
-                  {offering.logo ? (
-                    <img src={offering.logo} alt={offering.title} className="w-full h-full object-cover" />
-                  ) : (
-                    offering.icon && <offering.icon className="text-white" size={26} />
-                  )}
-                </div>
+              {/* Legibility scrim, weighted to the bottom */}
+              <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/45 to-black/10" />
 
-                {/* Accent dot */}
-                <div
-                  className="absolute top-4 right-4 w-2.5 h-2.5 rounded-full animate-pulse"
-                  style={{ backgroundColor: offering.accentColor }}
-                />
+              {/* Accent top border that grows on hover */}
+              <div
+                className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100"
+                style={{ backgroundColor: offering.accentColor }}
+              />
+
+              {/* Logo / icon badge */}
+              <div className="absolute left-5 top-5 flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl border border-white/20 bg-black/40 shadow-lg backdrop-blur-md">
+                {offering.logo ? (
+                  <img src={offering.logo} alt={offering.title} className="h-full w-full object-cover" />
+                ) : (
+                  offering.icon && <offering.icon className="text-white" size={24} />
+                )}
               </div>
 
-              {/* Body */}
-              <div className="flex flex-col flex-1 p-7 pt-10">
-                <div className="flex-1 space-y-3">
-                  <h3 className="text-lg font-black text-primary uppercase leading-tight group-hover:text-secondary transition-colors duration-300">
-                    {offering.title}
-                  </h3>
-                  <p
-                    className="text-xs font-bold uppercase tracking-wider"
-                    style={{ color: offering.accentColor }}
-                  >
-                    {offering.subtitle}
-                  </p>
-                  <p className="text-gray-500 text-sm leading-relaxed font-medium">
-                    {offering.description}
-                  </p>
-                </div>
+              {/* Content over the image */}
+              <div className="relative z-10 space-y-3 p-7">
+                <p
+                  className="text-[11px] font-bold uppercase tracking-[0.2em]"
+                  style={{ color: offering.accentColor }}
+                >
+                  {offering.subtitle}
+                </p>
+                <h3 className="text-2xl font-black uppercase leading-tight text-white">
+                  {offering.title}
+                </h3>
+                <p className="line-clamp-2 text-sm font-medium leading-relaxed text-white/70">
+                  {offering.description}
+                </p>
 
-                {/* Bottom divider */}
-                <div
-                  className="h-px w-full my-5 opacity-20"
-                  style={{ backgroundColor: offering.accentColor }}
-                />
-
-                {/* CTA */}
-                <Link to={offering.path}>
-                  <motion.button
-                    whileHover={{ x: 4 }}
-                    className="w-full flex items-center justify-between px-5 py-3.5 rounded-xl text-white text-xs font-bold uppercase tracking-widest transition-all duration-300 group/btn"
-                    style={{ background: `linear-gradient(135deg, #06221C, ${offering.accentColor}22)`, border: `1px solid ${offering.accentColor}33` }}
+                {/* CTA — clean accent pill */}
+                <Link to={offering.path} className="inline-block pt-2">
+                  <span
+                    className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-xs font-bold uppercase tracking-widest text-primary shadow-md transition-all duration-300 group-hover:gap-3.5"
+                    style={{ backgroundColor: offering.accentColor }}
                   >
-                    <span style={{ color: offering.accentColor }}>{offering.buttonText}</span>
-                    <ArrowRight
-                      className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform"
-                      style={{ color: offering.accentColor }}
-                    />
-                  </motion.button>
+                    {offering.buttonText}
+                    <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+                  </span>
                 </Link>
               </div>
             </motion.div>

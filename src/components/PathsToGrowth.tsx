@@ -1,90 +1,148 @@
+import { motion } from 'framer-motion';
+
+const pillars = [
+  {
+    name: 'Elev8 School of Skills',
+    description:
+      'Equipping individuals with practical, in-demand skills for real-world opportunities and income generation.',
+  },
+  {
+    name: 'Elev8 Media',
+    description:
+      'Shaping narratives and building brands — helping people and organizations communicate ideas with clarity and creativity.',
+  },
+  {
+    name: 'Elev8 Library',
+    description:
+      'Cultivating a culture of reading, thinking, and intellectual growth through access to books and community.',
+  },
+];
+
+const programs = [
+  {
+    name: 'Level Up Conference',
+    description:
+      'Our flagship annual online gathering, built to help people design — not drift through — their year with clarity and purpose.',
+  },
+  {
+    name: 'Welcome to College',
+    description:
+      'A career and life-readiness program each August, equipping high-school graduates for a purposeful transition to university.',
+  },
+  {
+    name: 'Innov8 Afrika',
+    description:
+      "A forward-thinking conference for African entrepreneurs and innovators building solutions for the continent's future.",
+  },
+];
+
+const Card = ({
+  index,
+  name,
+  description,
+  color,
+}: {
+  index: number;
+  name: string;
+  description: string;
+  color: string;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 24 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: '-60px' }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
+    className="group relative flex flex-col rounded-2xl border-t-4 bg-white p-7 shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl"
+    style={{ borderTopColor: color }}
+  >
+    <span className="mb-4 text-3xl font-black tabular-nums" style={{ color }}>
+      0{index + 1}
+    </span>
+    <h4 className="mb-3 text-lg font-black uppercase leading-tight text-primary">{name}</h4>
+    <p className="text-sm leading-relaxed text-primary/60">{description}</p>
+  </motion.div>
+);
+
+const GroupLabel = ({ label, color }: { label: string; color: string }) => (
+  <div className="mb-8 flex items-center gap-4">
+    <span className="text-xs font-bold uppercase tracking-[0.3em] whitespace-nowrap" style={{ color }}>
+      {label}
+    </span>
+    <div className="h-px flex-1 bg-primary/10" />
+  </div>
+);
+
 const PathsToGrowth = () => {
   return (
-    <section className="py-24 bg-bg-light text-primary">
-      <div className="container mx-auto px-6">
-        <div 
-          className="max-w-5xl mx-auto bg-white rounded-3xl p-12 md:p-20 shadow-2xl border border-primary/5 relative overflow-hidden"
+    <section className="relative overflow-hidden bg-bg-light py-24 text-primary">
+      {/* Ambient accents */}
+      <div className="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-secondary/5 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 -left-24 h-80 w-80 rounded-full bg-accent/5 blur-3xl" />
+
+      <div className="container relative z-10 mx-auto px-6">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto mb-16 max-w-4xl text-center"
         >
-          {/* Subtle background accent */}
-          <div className="absolute -top-24 -right-24 w-64 h-64 bg-secondary/5 rounded-full blur-3xl"></div>
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] text-secondary">Who We Are</p>
+          <h2 className="text-3xl font-black uppercase leading-tight tracking-tight md:text-5xl">
+            Elev8 is a <span className="text-secondary">growth ecosystem</span> built to develop minds,
+            equip skills, and amplify impact.
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-primary/70 md:text-lg">
+            We empower individuals — especially young people — to think, build, and live better. Because
+            transformation happens where knowledge, skill, and expression meet, our work runs across one
+            connected ecosystem of pillars and programs.
+          </p>
+        </motion.div>
 
-          <div className="relative z-10">
-            <h2 className="text-3xl md:text-5xl font-black mb-8 leading-tight uppercase tracking-tight">
-              Elev8 is a <span className="text-secondary">growth ecosystem</span> built to develop minds, equip skills, and amplify impact.
-            </h2>
-
-            <div className="space-y-8 text-primary/70 text-lg md:text-xl leading-relaxed">
-              <p className="font-medium text-primary">
-                We exist to empower individuals—especially young people—to think better, build better, and live better through learning, creativity, and opportunity.
-              </p>
-
-              <p>
-                At Elev8, we believe that transformation happens at the intersection of knowledge, skill, and expression. That is why our work is structured across a comprehensive ecosystem of pillars and programs:
-              </p>
-
-              <div className="grid md:grid-cols-3 gap-8 pt-8">
-                <div className="space-y-4 border-l-4 border-secondary pl-6">
-                  <h4 className="text-xl font-black text-primary uppercase">Elev8 School of Skills</h4>
-                  <p className="text-sm text-primary/60">Equipping individuals with practical, in-demand skills for real-world opportunities and income generation.</p>
-                </div>
-
-                <div className="space-y-4 border-l-4 border-secondary pl-6">
-                  <h4 className="text-xl font-black text-primary uppercase">Elev8 Media</h4>
-                  <p className="text-sm text-primary/60">Shaping narratives, building brands, and helping individuals and organizations communicate their ideas with clarity and creativity.</p>
-                </div>
-
-                <div className="space-y-4 border-l-4 border-secondary pl-6">
-                  <h4 className="text-xl font-black text-primary uppercase">Elev8 Library</h4>
-                  <p className="text-sm text-primary/60">Cultivating a culture of reading, thinking, and intellectual growth through access to books and community engagement.</p>
-                </div>
-              </div>
-
-              <div className="pt-12 border-t border-primary/10 space-y-6 italic">
-                <p>Together, these initiatives form a system designed not just to educate—but to activate potential.
-
-                </p>
-              </div>
-
-              <div className="pt-12 border-t border-primary/10">
-                <p className="font-medium text-primary">
-                  Beside our line of business we run social inpact programs that empower innovators, creatives, and entrepreneurs with the mindset, skills, and opportunities to build and thrive.
-                </p>
-                <p className="text-xs font-bold uppercase tracking-[0.3em] text-secondary mb-8">Our Social Impact Programs</p>
-                <div className="grid md:grid-cols-3 gap-8">
-                  <div className="space-y-4 border-l-4 border-accent pl-6">
-                    <h4 className="text-xl font-black text-primary uppercase">Level Up Conference</h4>
-                    <p className="text-sm text-primary/60">Our flagship annual online gathering designed to help individuals design—not drift through—their year with clarity and purpose.</p>
-                  </div>
-
-                  <div className="space-y-4 border-l-4 border-accent pl-6">
-                    <h4 className="text-xl font-black text-primary uppercase">Welcome to College</h4>
-                    <p className="text-sm text-primary/60">A career and life-readiness program held annually in August to equip high school graduates for a purposeful transition to university.</p>
-                  </div>
-
-                  <div className="space-y-4 border-l-4 border-accent pl-6">
-                    <h4 className="text-xl font-black text-primary uppercase">Innov8 Afrika</h4>
-                    <p className="text-sm text-primary/60">A forward-thinking conference dedicated to African entrepreneurs and innovators building solutions for the continent's future.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-12 border-t border-primary/10">
-                <p className="font-bold text-primary italic">
-                  We are building a generation that is informed, skilled, creative, and intentional—people who don’t just adapt to the future, but shape it.
-                </p>
-              </div>
-
-              <div className="pt-8 text-center">
-                <p className="text-2xl font-black text-primary uppercase tracking-tighter">
-                  Elev8 isn’t just what we do. It’s <span className="text-secondary italic">who we are.</span>
-                </p>
-                <p className="text-secondary font-bold uppercase tracking-[0.3em] text-sm mt-2">
-                  We elevate, so you can rise.
-                </p>
-              </div>
-            </div>
+        {/* Core Pillars */}
+        <div className="mx-auto mb-16 max-w-6xl">
+          <GroupLabel label="Our Core Pillars" color="#00D084" />
+          <div className="grid gap-6 md:grid-cols-3">
+            {pillars.map((p, i) => (
+              <Card key={p.name} index={i} name={p.name} description={p.description} color="#00D084" />
+            ))}
           </div>
         </div>
+
+        {/* Social Impact Programs */}
+        <div className="mx-auto max-w-6xl">
+          <p className="mx-auto mb-8 max-w-2xl text-center text-base leading-relaxed text-primary/70">
+            Beyond our core business, we run social-impact programs that empower innovators, creatives, and
+            entrepreneurs with the mindset, skills, and opportunities to build and thrive.
+          </p>
+          <GroupLabel label="Our Social Impact Programs" color="#0091FF" />
+          <div className="grid gap-6 md:grid-cols-3">
+            {programs.map((p, i) => (
+              <Card key={p.name} index={i} name={p.name} description={p.description} color="#0091FF" />
+            ))}
+          </div>
+        </div>
+
+        {/* Closing */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto mt-20 max-w-3xl text-center"
+        >
+          <p className="text-lg font-medium italic leading-relaxed text-primary/70 md:text-xl">
+            Together, these initiatives don't just educate — they activate potential, building a generation
+            that doesn't adapt to the future, but shapes it.
+          </p>
+          <p className="mt-8 text-2xl font-black uppercase tracking-tighter text-primary">
+            Elev8 isn't just what we do. It's <span className="italic text-secondary">who we are.</span>
+          </p>
+          <p className="mt-3 text-sm font-bold uppercase tracking-[0.3em] text-secondary">
+            We elevate, so you can rise.
+          </p>
+        </motion.div>
       </div>
     </section>
   );
