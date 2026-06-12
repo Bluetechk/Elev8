@@ -1,14 +1,5 @@
 import { BookOpen, Palette, Megaphone, Briefcase, BarChart, Users, DollarSign, Globe, MessageSquare, ShieldCheck, Cpu, Calculator } from 'lucide-react';
 
-import graphicsDesignImg from '../assets/graphicsdesign_Photoshop.jfif';
-import digitalMarketingImg from '../assets/digital_Marketing.jfif';
-import entrepreneurshipImg from '../assets/entepreneur&management.jfif';
-import projectMgmtImg from '../assets/project_management.jfif';
-import excelImg from '../assets/Excel.jfif';
-import hrImg from '../assets/humanresourcement.jfif';
-import wordpressImg from '../assets/WordPress Development Services.jfif';
-import quickbooksImg from '../assets/quickbook.jfif';
-
 const categoryColors: Record<string, string> = {
   'Creative & Digital': '#0091FF',
   'Business & Management': '#00D084',
@@ -23,7 +14,7 @@ const courses = [
     ideal: 'Aspiring designers, marketers, content creators.',
     icon: Palette,
     category: 'Creative & Digital',
-    image: graphicsDesignImg,
+    image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=800&auto=format&fit=crop',
   },
   {
     title: 'Digital Marketing & Content Creation',
@@ -31,7 +22,7 @@ const courses = [
     ideal: 'Entrepreneurs, content creators, job seekers.',
     icon: Megaphone,
     category: 'Creative & Digital',
-    image: digitalMarketingImg,
+    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop',
   },
   {
     title: 'Entrepreneurship & Business Management',
@@ -39,7 +30,7 @@ const courses = [
     ideal: 'Aspiring entrepreneurs, small business owners.',
     icon: Briefcase,
     category: 'Business & Management',
-    image: entrepreneurshipImg,
+    image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800&auto=format&fit=crop',
   },
   {
     title: 'Project Management',
@@ -47,7 +38,7 @@ const courses = [
     ideal: 'Team leaders, administrators, professionals.',
     icon: BarChart,
     category: 'Business & Management',
-    image: projectMgmtImg,
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop',
   },
   {
     title: 'Microsoft Excel Essentials',
@@ -55,7 +46,7 @@ const courses = [
     ideal: 'Office professionals, finance staff, students.',
     icon: Calculator,
     category: 'Technical & Tools',
-    image: excelImg,
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop',
   },
   {
     title: 'Human Resource Management',
@@ -63,7 +54,7 @@ const courses = [
     ideal: 'Aspiring HR professionals, team leaders.',
     icon: Users,
     category: 'Business & Management',
-    image: hrImg,
+    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop',
   },
   {
     title: 'Financial Management',
@@ -79,7 +70,7 @@ const courses = [
     ideal: 'Entrepreneurs, freelancers, small business owners.',
     icon: Globe,
     category: 'Creative & Digital',
-    image: wordpressImg,
+    image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=800&auto=format&fit=crop',
   },
   {
     title: 'Effective Communication & Public Speaking',
@@ -111,7 +102,7 @@ const courses = [
     ideal: 'Entrepreneurs, finance professionals.',
     icon: Calculator,
     category: 'Technical & Tools',
-    image: quickbooksImg,
+    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=800&auto=format&fit=crop',
   },
 ];
 
@@ -138,7 +129,7 @@ const CourseCatalog = () => {
             return (
               <div
                 key={i}
-                className="group flex flex-col overflow-hidden rounded-4xl border border-primary/5 bg-bg-light shadow-sm transition-all duration-500 hover:-translate-y-1.5 hover:border-secondary/30 hover:bg-white hover:shadow-xl"
+                className="group flex flex-col overflow-hidden rounded-[2rem] border border-primary/5 bg-bg-light shadow-sm transition-all duration-500 hover:-translate-y-1.5 hover:border-secondary/30 hover:bg-white hover:shadow-xl"
               >
                 {/* Image header (with brand-gradient + icon fallback) */}
                 <div
@@ -159,7 +150,7 @@ const CourseCatalog = () => {
                   />
 
                   {/* Bottom scrim */}
-                  <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
 
                   {/* Category chip */}
                   <span className="absolute left-4 top-4 rounded-full border border-white/15 bg-black/30 px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-white backdrop-blur-md">

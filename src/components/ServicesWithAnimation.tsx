@@ -61,48 +61,100 @@ const ServicesWithAnimation = () => {
     <section className="py-24 bg-black relative overflow-hidden flex items-center min-h-screen md:min-h-225">
       
       {/* Static Background Fallback */}
+      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-[0.15] mix-blend-luminosity scale-105"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1964&auto=format&fit=crop')`,
+            filter: 'contrast(1.2) brightness(0.65)'
+          }}
+        />
+        <div className="absolute inset-0 bg-linear-to-r from-black via-black/90 to-transparent md:to-black/30" />
+        <div className="absolute inset-0 bg-linear-to-b from-black via-transparent to-black" />
+      </div>
+
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="grid md:grid-cols-12 gap-12 md:gap-8 items-center">
           
           {/* Left Column: Service List */}
           <div className="col-span-12 md:col-span-6 relative">
-            <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5 p-6 md:p-8">
-              <div className="absolute right-6 top-1/2 -translate-y-1/2">
-                <div className="w-20 h-20 rounded-full border border-white/20 bg-white/10 flex items-center justify-center shadow-xl">
-                  <ArrowRight className="w-6 h-6 text-white" strokeWidth={3} />
-                </div>
-              </div>
+            
+            <div 
+              className="flex flex-col justify-center relative w-full"
+              style={{ 
+                perspective: '1000px',
+                transformStyle: 'preserve-3d'
+              }}
+            >
+              {servicesList.map((service, index) => {
+                const d = index - activeIndex;
+                const distance = Math.abs(d);
+                const isFocused = d === 0;
+                
+                const rotateX = d * -16; 
+                const translateZ = -distance * 45;
+                const translateX = -Math.pow(distance, 1.6) * 12;
+                const scale = isFocused ? 1.35 : Math.max(0.75, 1 - distance * 0.12);
+                const opacity = isFocused ? 1 : Math.max(0.1, 0.45 - distance * 0.12);
+                const blur = isFocused ? 0 : distance * 1.5;
 
-              <div className="relative space-y-4">
-                {servicesList.map((service, index) => {
-                  const d = index - activeIndex;
-                  const isFocused = d === 0;
-                  const offsetX = isFocused ? 0 : (d < 0 ? -32 : 32);
-                  const opacity = isFocused ? 1 : 0.45;
+                return (
+                  <motion.div
+                    key={service.name}
+                    animate={{
+                      scale,
+                      opacity,
+                      filter: `blur(${blur}px)`,
+                      x: translateX,
+                      z: translateZ,
+                      rotateX: rotateX,
+                      color: isFocused ? '#ffffff' : '#4b5563',
+                    }}
+                    transition={{ 
+                      type: "spring",
+                      stiffness: 100,
+                      damping: 18,
+                      mass: 0.8
+                    }}
+                    style={{
+                      transformStyle: 'preserve-3d',
+                      transformOrigin: 'left center',
+                    }}
+                    onClick={() => setActiveIndex(index)}
+                    className="flex items-center py-3 md:py-4 cursor-pointer select-none origin-left relative animate-gpu"
+                  >
+                    <div className="absolute right-full mr-4 flex items-center justify-end w-12">
+                      <motion.div 
+                        animate={{
+                          width: isFocused ? 24 : 10,
+                          backgroundColor: isFocused ? '#ffffff' : 'rgba(255,255,255,0.15)',
+                          height: isFocused ? 3 : 1
+                        }}
+                        transition={{ duration: 0.4 }}
+                        className="rounded-full"
+                      />
+                    </div>
 
-                  return (
-                    <motion.div
-                      key={service.name}
-                      initial={{ opacity: 0, x: offsetX }}
-                      animate={{ opacity, x: 0 }}
-                      transition={{ duration: 0.45, ease: 'easeOut' }}
-                      onClick={() => setActiveIndex(index)}
-                      className="cursor-pointer"
-                    >
-                      <div className={`relative overflow-hidden rounded-4xl border transition-all duration-300 ${isFocused ? 'bg-white/15 border-white/20 shadow-[0_20px_60px_rgba(255,255,255,0.12)]' : 'bg-white/5 border-white/10 hover:bg-white/10'} py-5 px-6 pr-32`}> 
-                        <span className={`text-4xl md:text-5xl lg:text-6xl font-black tracking-tight transition-colors duration-300 ${isFocused ? 'text-white' : 'text-slate-300'}`}>
-                          {service.name}
-                        </span>
-                        {isFocused && (
-                          <div className="mt-3 text-sm tracking-[0.22em] uppercase text-white/70">
-                            {service.tagline}
-                          </div>
-                        )}
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
+                    <AnimatePresence>
+                      {isFocused && (
+                        <motion.div 
+                          initial={{ opacity: 0, x: -15, scale: 0.7 }}
+                          animate={{ opacity: 1, x: 0, scale: 1 }}
+                          exit={{ opacity: 0, x: -15, scale: 0.7 }}
+                          transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                          className="absolute right-full mr-8 flex items-center justify-center text-white"
+                        >
+                          <ArrowRight className="w-8 h-8 md:w-10 md:h-10" strokeWidth={2.5} />
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                    
+                    <span className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight select-none">
+                      {service.name}
+                    </span>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
 

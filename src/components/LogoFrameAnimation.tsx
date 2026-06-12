@@ -10,7 +10,7 @@ const FPS = 24;
 
 const LogoFrameAnimation = ({ minimal = false, className = '' }: LogoFrameAnimationProps) => {
   const frames = useMemo(() => {
-    const imports = import.meta.glob('../assets/Elev8_logo_motion_graphics_anima*.jpg', { eager: true, as: 'url' });
+    const imports = import.meta.glob('../assets/elev8-frame-*.jpg', { eager: true, as: 'url' });
     return Object.entries(imports)
       .sort(([a], [b]) => a.localeCompare(b))
       .map(([, url]) => url as string);
@@ -25,9 +25,12 @@ const LogoFrameAnimation = ({ minimal = false, className = '' }: LogoFrameAnimat
   const lastTimeRef = useRef(0);
   const frameDuration = 1000 / FPS;
 
-  // Preload AND fully decode every frame before playback starts. Waiting only
-  // for `load` leaves the browser to decode each frame the first time it is
-  // painted, which is what made the sequence blink during the first loop.
+  // Preload and decode the frames. We start playback as soon as the FIRST
+  // frame is decoded rather than waiting for all of them — on a deployed
+  // (slower) connection, waiting for the full 8 MB sequence is what left the
+  // section black/"Loading" for a long time. The remaining frames keep
+  // decoding in the background; until a given frame is ready, drawFrame simply
+  // keeps the previously painted frame, so there is still no blank flash.
   useEffect(() => {
     if (!frames.length) return;
     let cancelled = false;
@@ -39,15 +42,18 @@ const LogoFrameAnimation = ({ minimal = false, className = '' }: LogoFrameAnimat
     });
     imagesRef.current = images;
 
-    Promise.all(
-      images.map((image) =>
-        // decode() resolves once the bitmap is ready to paint with no flash.
-        // Fall back gracefully if a frame fails to decode.
-        (image.decode ? image.decode() : Promise.resolve()).catch(() => undefined)
-      )
-    ).then(() => {
+    const decode = (image: HTMLImageElement) =>
+      // decode() resolves once the bitmap is ready to paint with no flash.
+      // Fall back gracefully if a frame fails to decode (e.g. a 404).
+      (image.decode ? image.decode() : Promise.resolve()).catch(() => undefined);
+
+    // Reveal the canvas the moment the first frame can be painted.
+    decode(images[0]).then(() => {
       if (!cancelled) setReady(true);
     });
+
+    // Warm the rest in the background so later loops never block on decoding.
+    images.slice(1).forEach(decode);
 
     return () => {
       cancelled = true;
