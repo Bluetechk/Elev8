@@ -1,3 +1,4 @@
+import Seo from '../components/Seo';
 import AboutHero from '../components/AboutHero';
 import MediaWhoWeAre from '../components/MediaWhoWeAre';
 import MediaWhatWeDo from '../components/MediaWhatWeDo';
@@ -9,7 +10,12 @@ import MediaTestimonials from '../components/MediaTestimonials';
 const Elev8Media = () => {
   return (
     <>
-      <AboutHero 
+      <Seo
+        title="Elev8 Media — Branding, Content & Digital Storytelling"
+        description="Creative and strategic branding, content creation, and digital storytelling that help you communicate with impact. Shape your narrative with Elev8 Media."
+        path="/media"
+      />
+      <AboutHero
         title="Elev8 Media" 
         subtitle="Shaping the narrative"
         tagline="We provide creative and strategic services in branding, content creation, and digital storytelling."

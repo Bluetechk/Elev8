@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, MessageSquare, CheckCircle } from 'lucide-react';
 import { FacebookIcon, InstagramIcon, LinkedInIcon } from '../components/SocialIcons';
+import Seo from '../components/Seo';
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -46,6 +47,11 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <Seo
+        title="Contact Elev8 Inc. — Let's Connect"
+        description="Get in touch with Elev8 Inc. in Monrovia, Liberia. Reach us by email, phone, or WhatsApp to start your journey of intentional growth."
+        path="/contact"
+      />
       {/* Hero Section */}
       <section className="relative py-24 bg-primary overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&q=80')] opacity-10 bg-cover bg-center" />
