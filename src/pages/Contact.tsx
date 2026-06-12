@@ -1,24 +1,52 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, MessageSquare, CheckCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import { FacebookIcon, InstagramIcon, LinkedInIcon } from '../components/SocialIcons';
 import Seo from '../components/Seo';
 
+// ── EmailJS configuration ───────────────────────────────────────────────────
+// Get these three values from your EmailJS dashboard (https://dashboard.emailjs.com):
+//   Service ID  → Email Services
+//   Template ID → Email Templates
+//   Public Key  → Account → General
+// They are safe to expose in client-side code. The recipient ("To Email") is set
+// inside the EmailJS template itself, not here.
+const EMAILJS_SERVICE_ID = 'service_q377h5j';
+const EMAILJS_TEMPLATE_ID = 'template_upf8drl';
+const EMAILJS_PUBLIC_KEY = 'jtz6ukfT4_RCyn8Up';
+
 const Contact = () => {
+  const formRef = useRef<HTMLFormElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formRef.current) return;
+
+    setError(null);
     setIsSubmitting(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      // Reset after 5 seconds
-      setTimeout(() => setIsSubmitted(false), 5000);
-    }, 1500);
+
+    // Send the form fields (matched by their `name` attributes) to EmailJS,
+    // which delivers them to the inbox configured in the template.
+    emailjs
+      .sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current, {
+        publicKey: EMAILJS_PUBLIC_KEY,
+      })
+      .then(() => {
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+        formRef.current?.reset();
+        // Reset after 5 seconds
+        setTimeout(() => setIsSubmitted(false), 5000);
+      })
+      .catch((err) => {
+        console.error('EmailJS send failed:', err);
+        setIsSubmitting(false);
+        setError('Sorry, your message could not be sent. Please try again, or email us directly at weelev8global@gmail.com.');
+      });
   };
 
   const contactInfo = [
@@ -196,23 +224,25 @@ const Contact = () => {
                       Send a <span className="text-secondary">Message</span>
                     </h2>
 
-                    <form onSubmit={handleSubmit} className="space-y-6">
+                    <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                       <div className="grid md:grid-cols-2 gap-6">
                         <div className="space-y-2">
                           <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Full Name</label>
-                          <input 
+                          <input
                             required
-                            type="text" 
-                            placeholder="John Doe" 
+                            type="text"
+                            name="from_name"
+                            placeholder="John Doe"
                             className="w-full bg-gray-50 border-transparent border-b-2 border-b-gray-100 focus:border-b-secondary focus:bg-white px-6 py-4 rounded-xl outline-none transition-all font-medium"
                           />
                         </div>
                         <div className="space-y-2">
                           <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Email Address</label>
-                          <input 
+                          <input
                             required
-                            type="email" 
-                            placeholder="john@example.com" 
+                            type="email"
+                            name="from_email"
+                            placeholder="john@example.com"
                             className="w-full bg-gray-50 border-transparent border-b-2 border-b-gray-100 focus:border-b-secondary focus:bg-white px-6 py-4 rounded-xl outline-none transition-all font-medium"
                           />
                         </div>
@@ -220,7 +250,7 @@ const Contact = () => {
 
                       <div className="space-y-2">
                         <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Subject</label>
-                        <select required className="w-full bg-gray-50 border-transparent border-b-2 border-b-gray-100 focus:border-b-secondary focus:bg-white px-6 py-4 rounded-xl outline-none transition-all font-medium appearance-none">
+                        <select required name="subject" className="w-full bg-gray-50 border-transparent border-b-2 border-b-gray-100 focus:border-b-secondary focus:bg-white px-6 py-4 rounded-xl outline-none transition-all font-medium appearance-none">
                           <option value="">Select a subject</option>
                           <option>General Inquiry</option>
                           <option>School of Skill Admission</option>
@@ -231,13 +261,20 @@ const Contact = () => {
 
                       <div className="space-y-2">
                         <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Your Message</label>
-                        <textarea 
+                        <textarea
                           required
-                          rows={5} 
-                          placeholder="How can we help you rise?" 
+                          rows={5}
+                          name="message"
+                          placeholder="How can we help you rise?"
                           className="w-full bg-gray-50 border-transparent border-b-2 border-b-gray-100 focus:border-b-secondary focus:bg-white px-6 py-4 rounded-xl outline-none transition-all font-medium resize-none"
                         />
                       </div>
+
+                      {error && (
+                        <p className="text-sm font-medium text-red-600 bg-red-50 border border-red-100 rounded-xl px-5 py-3">
+                          {error}
+                        </p>
+                      )}
 
                       <motion.button 
                         disabled={isSubmitting}
