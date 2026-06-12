@@ -35,12 +35,16 @@ const LibraryAbout = () => {
             alt="Person reading at Elev8 Library"
             className="h-full w-full object-cover object-center"
           />
-          {/* Fade into white on the left so the text stays readable */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent lg:via-white/40" />
+          {/* On mobile the image sits full-width behind the text, so cover it
+              with a strong flat white scrim. On lg the image moves to the right
+              third and we switch to the one-sided fade instead. */}
+          <div className="absolute inset-0 bg-white/75 lg:bg-transparent lg:bg-linear-to-r lg:from-white lg:via-white/40 lg:to-transparent" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-xl py-24">
+          {/* Frosted panel guarantees contrast on mobile; on lg it dissolves
+              back into the plain layout. */}
+          <div className="max-w-xl my-14 lg:my-0 lg:py-24 rounded-3xl bg-white/70 backdrop-blur-md p-7 sm:p-9 shadow-xl ring-1 ring-primary/5 lg:rounded-none lg:bg-transparent lg:backdrop-blur-none lg:p-0 lg:shadow-none lg:ring-0">
             <div className="inline-flex items-center justify-center w-20 h-20 bg-primary text-secondary rounded-full mb-10 shadow-xl">
               <QuoteIcon size={40} />
             </div>
