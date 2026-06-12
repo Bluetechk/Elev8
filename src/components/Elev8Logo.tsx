@@ -175,7 +175,7 @@ const Letter = ({ char, delay }: { char: string; delay: number }) => (
 
 const TagWord = ({ word, delay }: { word: string; delay: number }) => (
   <span
-    className="text-[15px] md:text-[20px] font-black uppercase tracking-[0.3em] whitespace-nowrap"
+    className="text-[15px] md:text-[19px] font-black uppercase tracking-[0.24em] whitespace-nowrap"
     style={{
       color: "#777",
       opacity: 0,
@@ -232,12 +232,10 @@ const LogoLockup = () => (
       </div>
     </div>
 
-    <div className="flex items-center">
-      <TagWord word="Rise" delay={1.85} />
+    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-0 px-4 text-center">
+      <TagWord word="Rise Intentionally" delay={1.85} />
       <TagSep delay={2.05} />
-      <TagWord word="Shine" delay={2.15} />
-      <TagSep delay={2.35} />
-      <TagWord word="Elevate" delay={2.45} />
+      <TagWord word="Live Exceptionally" delay={2.2} />
     </div>
   </div>
 );
@@ -355,7 +353,7 @@ export default function Elev8Logo() {
         }}
         onClick={() => setRunId((n) => n + 1)}
         role="img"
-        aria-label="Elev8 — Rise, Shine, Elevate. Breaking boundaries, unlocking potential across Africa and beyond."
+        aria-label="Elev8 — Rise Intentionally, Live Exceptionally. Breaking boundaries, unlocking potential across Africa and beyond."
       >
         {/* ── Cinematic atmosphere (dark stage only) ── */}
         <div
