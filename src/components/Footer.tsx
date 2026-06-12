@@ -17,7 +17,7 @@ const Footer = () => {
       case '/media':
         return "https://www.facebook.com/share/p/1E1HrozgNY/";
       default:
-        return "https://www.facebook.com/profile.php?id=61566349948896";
+        return "https://www.facebook.com/profile.php?id=61577430852656";
     }
   };
 

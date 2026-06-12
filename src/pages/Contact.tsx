@@ -178,7 +178,7 @@ const Contact = () => {
                 <h4 className="text-xs font-bold text-gray-400 uppercase tracking-[0.3em] mb-5">Follow Our Journey</h4>
                 <div className="flex gap-3">
                   <motion.a
-                    href="https://www.facebook.com/profile.php?id=61566349948896"
+                    href="https://www.facebook.com/profile.php?id=61577430852656"
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ y: -4 }}
