@@ -131,7 +131,7 @@ const Contact = () => {
                 <h4 className="text-xs font-bold text-gray-400 uppercase tracking-[0.3em] mb-5">Follow Our Journey</h4>
                 <div className="flex gap-3">
                   <motion.a
-                    href="https://facebook.com/share/p/14bctACaDPK/"
+                    href="https://www.facebook.com/profile.php?id=61566349948896"
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ y: -4 }}
@@ -140,14 +140,18 @@ const Contact = () => {
                     <FacebookIcon size={20} />
                   </motion.a>
                   <motion.a
-                    href="#"
+                    href="https://www.instagram.com/we_elev8/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ y: -4 }}
                     className="w-11 h-11 rounded-full flex items-center justify-center text-primary hover:bg-secondary hover:text-white border border-gray-200 transition-colors"
                   >
                     <InstagramIcon size={20} />
                   </motion.a>
                   <motion.a
-                    href="#"
+                    href="https://www.linkedin.com/company/we-elev8/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ y: -4 }}
                     className="w-11 h-11 rounded-full flex items-center justify-center text-primary hover:bg-secondary hover:text-white border border-gray-200 transition-colors"
                   >

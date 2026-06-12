@@ -17,7 +17,7 @@ const Footer = () => {
       case '/media':
         return "https://www.facebook.com/share/p/1E1HrozgNY/";
       default:
-        return "https://facebook.com/share/p/14bctACaDPK/";
+        return "https://www.facebook.com/profile.php?id=61566349948896";
     }
   };
 
@@ -89,7 +89,7 @@ const Footer = () => {
               <a href={instagramLink} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-secondary hover:text-white transition-all text-white/60">
                 <InstagramIcon size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-secondary hover:text-white transition-all text-white/60">
+              <a href="https://www.linkedin.com/company/we-elev8/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-secondary hover:text-white transition-all text-white/60">
                 <LinkedInIcon size={18} />
               </a>
             </div>
