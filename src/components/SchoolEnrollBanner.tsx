@@ -24,9 +24,9 @@ const SchoolEnrollBanner = () => {
             </p>
             
             <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-              <button className="px-8 py-4 bg-primary text-white font-black uppercase tracking-widest rounded-xl hover:bg-secondary hover:text-primary transition-all duration-300 shadow-lg flex items-center gap-2">
+              <a href="https://forms.gle/xPRiE5P1cfA7Zvo56" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-primary text-white font-black uppercase tracking-widest rounded-xl hover:bg-secondary hover:text-primary transition-all duration-300 shadow-lg flex items-center gap-2">
                 Register for a Course
-              </button>
+              </a>
               
               <a 
                 href="https://www.instagram.com/we_elev8/" 

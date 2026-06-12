@@ -40,10 +40,10 @@ const WelcomeCTA = () => {
              </p>
 
              <div className="flex flex-wrap justify-center gap-6">
-                <button className="flex items-center gap-3 px-12 py-5 bg-secondary text-primary font-black uppercase tracking-widest rounded-2xl hover:bg-white transition-all duration-300 shadow-xl">
+                <a href="https://forms.gle/XAkUvBfc37sU5yQQ9" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-12 py-5 bg-secondary text-primary font-black uppercase tracking-widest rounded-2xl hover:bg-white transition-all duration-300 shadow-xl">
                   <UserPlus size={20} />
                   Join the Next Cohort
-                </button>
+                </a>
                 <button className="flex items-center gap-3 px-12 py-5 bg-white/10 text-white border-2 border-white/20 font-black uppercase tracking-widest rounded-2xl hover:bg-white hover:text-primary transition-all duration-300">
                   <Mail size={20} />
                   Inquire Now

@@ -50,9 +50,9 @@ const LevelUpCTA = () => {
              </h2>
              
              <div className="flex flex-wrap justify-center gap-6">
-               <button className="px-10 py-5 bg-secondary text-primary font-black uppercase tracking-widest rounded-2xl hover:bg-white transition-all duration-300 shadow-xl">
+               <a href="https://forms.gle/YAU5suKTmrp8MYf86" target="_blank" rel="noopener noreferrer" className="inline-block px-10 py-5 bg-secondary text-primary font-black uppercase tracking-widest rounded-2xl hover:bg-white transition-all duration-300 shadow-xl">
                  Register Now
-               </button>
+               </a>
                <button className="px-10 py-5 bg-white/10 text-white border-2 border-white/20 font-black uppercase tracking-widest rounded-2xl hover:bg-white hover:text-primary transition-all duration-300 shadow-xl">
                  Learn More
                </button>

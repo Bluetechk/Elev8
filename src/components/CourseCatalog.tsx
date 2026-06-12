@@ -191,9 +191,9 @@ const CourseCatalog = () => {
           <div className="relative z-10">
             <h4 className="text-2xl font-black uppercase mb-4 tracking-tight">Ready to Master a New Skill?</h4>
             <p className="text-white/70 mb-8 font-medium">Our next cohort starts soon. Secure your spot and start your journey from learning to earning.</p>
-            <button className="px-10 py-4 bg-secondary text-primary font-black uppercase tracking-widest rounded-full hover:bg-white transition-colors duration-300 shadow-xl">
+            <a href="https://forms.gle/xPRiE5P1cfA7Zvo56" target="_blank" rel="noopener noreferrer" className="inline-block px-10 py-4 bg-secondary text-primary font-black uppercase tracking-widest rounded-full hover:bg-white transition-colors duration-300 shadow-xl">
               Apply Now
-            </button>
+            </a>
           </div>
         </div>
       </div>

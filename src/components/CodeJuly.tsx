@@ -78,9 +78,9 @@ const CodeJuly = () => {
               </div>
 
               <div className="pt-8 flex justify-center lg:justify-start">
-                <button className="px-12 py-5 bg-secondary text-primary font-black uppercase tracking-widest rounded-2xl hover:bg-white transition-all duration-300 shadow-2xl hover:-translate-y-1 active:translate-y-0">
+                <a href="https://forms.gle/aHeubRpd9marfsz5A" target="_blank" rel="noopener noreferrer" className="inline-block px-12 py-5 bg-secondary text-primary font-black uppercase tracking-widest rounded-2xl hover:bg-white transition-all duration-300 shadow-2xl hover:-translate-y-1 active:translate-y-0">
                   Apply Now
-                </button>
+                </a>
               </div>
             </div>
           </div>
