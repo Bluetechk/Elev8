@@ -12,9 +12,9 @@ import Seo from '../components/Seo';
 //   Public Key  → Account → General
 // They are safe to expose in client-side code. The recipient ("To Email") is set
 // inside the EmailJS template itself, not here.
-const EMAILJS_SERVICE_ID = 'service_q377h5j';
-const EMAILJS_TEMPLATE_ID = 'template_upf8drl';
-const EMAILJS_PUBLIC_KEY = 'jtz6ukfT4_RCyn8Up';
+const EMAILJS_SERVICE_ID = 'service_1419fra';
+const EMAILJS_TEMPLATE_ID = 'template_mwew5x8';
+const EMAILJS_PUBLIC_KEY = 'cZxAlpdsccCka48x0';
 
 const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null);
