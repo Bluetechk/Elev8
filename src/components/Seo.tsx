@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 // The live production origin. Update this single constant if the domain
 // changes (it also needs updating in public/robots.txt and public/sitemap.xml).
-export const SITE_URL = 'https://elev8inc.netlify.app';
+export const SITE_URL = 'https://weelev8.netlify.app';
 
 const SITE_NAME = 'Elev8 Inc.';
 const DEFAULT_IMAGE = `${SITE_URL}/elev8_logo.jpeg`;
