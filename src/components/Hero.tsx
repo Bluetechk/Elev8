@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import heroImage from '../assets/heroimage.jpg';
-import LogoFrameAnimation from './LogoFrameAnimation';
+import Elev8Logo from './Elev8Logo';
 
 const Hero = () => {
   return (
@@ -91,14 +91,11 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* ══════════════ MOTION FRAME ANIMATION ══════════════ */}
-      {/* On mobile the section matches the 16:9 frame ratio so the whole frame
-          is visible (no cropping); on md+ it fills the full viewport height. */}
-      <div id="story" className="relative w-full aspect-video md:aspect-auto md:h-screen">
-        <LogoFrameAnimation minimal className="absolute inset-0" />
-
-        {/* Subtle dark overlay to keep the bright frames from washing out. */}
-        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+      {/* ══════════════ ANIMATED LOGO ══════════════ */}
+      {/* Pure-CSS animated Elev8 logo — no image frames, so nothing to 404 on
+          deploy. Self-contained <section> with its own background. */}
+      <div id="story" className="w-full">
+        <Elev8Logo />
       </div>
     </section>
   );
