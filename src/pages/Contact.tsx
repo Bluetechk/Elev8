@@ -24,21 +24,40 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formRef.current) return;
+    const form = formRef.current;
+    if (!form) return;
 
     setError(null);
     setIsSubmitting(true);
 
-    // Send the form fields (matched by their `name` attributes) to EmailJS,
-    // which delivers them to the inbox configured in the template.
+    const data = new FormData(form);
+    const name = String(data.get('from_name') ?? '');
+    const email = String(data.get('from_email') ?? '');
+    const subject = String(data.get('subject') ?? '');
+    const message = String(data.get('message') ?? '');
+
+    // Send the message under several common variable aliases so it renders no
+    // matter which names the EmailJS template uses ({{name}}/{{from_name}},
+    // {{email}}/{{reply_to}}, {{title}}/{{subject}}, {{message}}).
+    const templateParams = {
+      name,
+      from_name: name,
+      email,
+      from_email: email,
+      reply_to: email,
+      subject,
+      title: subject,
+      message,
+    };
+
     emailjs
-      .sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current, {
+      .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, {
         publicKey: EMAILJS_PUBLIC_KEY,
       })
       .then(() => {
         setIsSubmitting(false);
         setIsSubmitted(true);
-        formRef.current?.reset();
+        form.reset();
         // Reset after 5 seconds
         setTimeout(() => setIsSubmitted(false), 5000);
       })
